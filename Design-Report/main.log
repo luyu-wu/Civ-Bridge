@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.13)  15 NOV 2025 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.13)  16 NOV 2025 12:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -533,6 +533,7 @@ LaTeX Font Info:    ... okay on input line 23.
 \everyMPtoPDFconversion=\toks37
 )
 Package hyperref Info: Link coloring ON on input line 23.
+ (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -543,366 +544,31 @@ Class revtex4-2 Info: Taking \maketitle back from hyperref on input line 23.
 
 Class revtex4-2 Warning: Assuming \noaffiliation for authors.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+(./main.bbl) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.aux
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
-
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Warning: Reference `eq:Period' on page 1 undefined on input line 50.
-
-
-LaTeX Warning: Reference `eq:Period' on page 1 undefined on input line 54.
-
-
-LaTeX Warning: Reference `fig:experiment_setup' on page 1 undefined on input li
-ne 64.
-
-
-Underfull \hbox (badness 1360) in paragraph at lines 64--65
-[]\OT1/cmr/m/n/10 The ex-per-i-men-tal setup con-sists of a 3m string,
- []
-
-
-LaTeX Warning: File `setup.png' not found on input line 71.
-
-
-! Package pdftex.def Error: File `setup.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.71 ...degraphics[width=0.6\linewidth]{setup.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `eq:Period' on page 1 undefined on input line 88.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Reference `fig:amplitude-period' on page 2 undefined on input li
-ne 92.
-
-
-LaTeX Warning: Reference `eq:Period' on page 2 undefined on input line 92.
-
-
-LaTeX Warning: File `amp_per_error_of_mean.png' not found on input line 96.
-
-
-! Package pdftex.def Error: File `amp_per_error_of_mean.png' not found: using d
-raft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 ...0.85\linewidth]{amp_per_error_of_mean.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:small-angles' on page 2 undefined on input line 1
-01.
-
-
-LaTeX Warning: File `Q-factor-smallangleusage.png' not found on input line 105.
-
-
-
-! Package pdftex.def Error: File `Q-factor-smallangleusage.png' not found: usin
-g draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.105 ...\linewidth]{Q-factor-smallangleusage.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:amplitude-period' on page 2 undefined on input li
-ne 107.
-
-
-LaTeX Warning: Reference `fig:amplitude-period' on page 2 undefined on input li
-ne 107.
-
-
-LaTeX Warning: Reference `fig:decay' on page 2 undefined on input line 115.
-
-
-LaTeX Warning: File `decay.png' not found on input line 119.
-
-
-! Package pdftex.def Error: File `decay.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.119 ...egraphics[width=0.8\linewidth]{decay.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:decay_small_angle' on page 2 undefined on input l
-ine 124.
-
-
-LaTeX Warning: File `low_angle_q.png' not found on input line 126.
-
-
-! Package pdftex.def Error: File `low_angle_q.png' not found: using draft setti
-ng.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.126 ...ics[width=0.8\linewidth]{low_angle_q.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[2]
-
-LaTeX Warning: Reference `fig:count_q' on page 3 undefined on input line 133.
-
-
-LaTeX Warning: File `count_decay.png' not found on input line 137.
-
-
-! Package pdftex.def Error: File `count_decay.png' not found: using draft setti
-ng.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.137 ...ics[width=0.9\linewidth]{count_decay.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `length-period.png' not found on input line 160.
-
-
-! Package pdftex.def Error: File `length-period.png' not found: using draft set
-ting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.160 ...s[width=0.9\linewidth]{length-period.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:lengthperiod' on page 3 undefined on input line 1
-65.
-
-
-LaTeX Warning: Reference `eq:Period' on page 3 undefined on input line 165.
-
-
-LaTeX Warning: Reference `eq:Period' on page 3 undefined on input line 169.
-
-[3]
-
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 170.
-
-
-LaTeX Warning: Reference `fig:qfactperiod' on page 4 undefined on input line 17
-6.
-
-
-LaTeX Warning: File `length-Q.png' not found on input line 181.
-
-
-! Package pdftex.def Error: File `length-Q.png' not found: using draft setting.
-
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 ...aphics[width=0.9\linewidth]{length-Q.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[4]
-Underfull \hbox (badness 1067) in paragraph at lines 195--196
-[]\OT1/cmr/m/n/10 The am-pli-tude un-cer-tainty are es-ti-mated through
- []
-
-
-LaTeX Warning: Reference `fig:amplitude-period' on page 5 undefined on input li
-ne 207.
-
-
-LaTeX Warning: Reference `fig:decay' on page 5 undefined on input line 207.
-
-
-LaTeX Warning: Reference `fig:decay_small_angle' on page 5 undefined on input l
-ine 209.
-
-
-LaTeX Warning: Reference `eq:Period' on page 5 undefined on input line 211.
-
-[5]
-
-LaTeX Warning: File `out-of-plane.png' not found on input line 242.
-
-
-! Package pdftex.def Error: File `out-of-plane.png' not found: using draft sett
-ing.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.242 ...cs[width=0.4\linewidth]{out-of-plane.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:body' on page 6 undefined on input line 249.
-
-
-LaTeX Warning: File `pendulum-body.png' not found on input line 251.
-
-
-! Package pdftex.def Error: File `pendulum-body.png' not found: using draft set
-ting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.251 ...s[width=0.2\linewidth]{pendulum-body.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `fitting.png' not found on input line 259.
-
-
-! Package pdftex.def Error: File `fitting.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.259 ...raphics[width=0.6\linewidth]{fitting.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `non-log-period.png' not found on input line 289.
-
-
-! Package pdftex.def Error: File `non-log-period.png' not found: using draft se
-tting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.289 ...[width=0.3\linewidth]{non-log-period.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6]
-
-LaTeX Warning: File `length-q-counting.png' not found on input line 297.
-
-
-! Package pdftex.def Error: File `length-q-counting.png' not found: using draft
- setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.297 ...dth=0.5\linewidth]{length-q-counting.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7]
-No file main.bbl.
-[8] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  099B1D52A2AC952B271F40942887DABB;3199.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: B36E68D5A8ECE0DA2FD1DCED92ECC779;447.
  ) 
 Here is how much of TeX's memory you used:
- 13681 strings out of 475171
- 211450 string characters out of 5767094
- 729690 words of memory out of 5000000
- 36434 multiletter control sequences out of 15000+600000
- 569359 words of font info for 75 fonts, out of 8000000 for 9000
+ 13168 strings out of 475171
+ 199628 string characters out of 5767094
+ 708799 words of memory out of 5000000
+ 35986 multiletter control sequences out of 15000+600000
+ 560049 words of font info for 40 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 79i,6n,93p,727b,519s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on main.pdf (8 pages, 243465 bytes).
+ 79i,5n,93p,591b,519s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr9.pfb>
+Output written on main.pdf (1 page, 56827 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 50 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
