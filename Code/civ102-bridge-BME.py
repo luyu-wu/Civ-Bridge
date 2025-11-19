@@ -66,6 +66,10 @@ def get_max_M(P):
 # draw a diagram for visualization
 def get_diagram(M):
     plt.plot([i for i in range(1251)], M)
+    plt.grid(alpha=0.5)
+    plt.ylabel("Bending Moment ($Nm$)")
+    plt.xlabel("Position (mm)")
+    plt.tight_layout()
     plt.show()
 
 # testing
