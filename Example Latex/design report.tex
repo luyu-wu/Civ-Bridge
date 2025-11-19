@@ -1,0 +1,270 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[top=10mm, bottom=16mm, left=10mm, right=10mm,foot=8mm, marginparsep=0mm]{geometry}
+
+\title{CIV102 Matboard Bridge Design Project}
+\author{G. Jeon, A. Aragola, H. Jardine}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Matboard and contact cement is used to build a bridge for the Eng-Sci class of 2T6’s annual CIV102 Matboard Bridge Design Project. The aforementioned bridge would undergo multiple design iterations and the data generated with each iteration is analysed for the purpose of optimizing the structural integrity in order to build the best bridge possible with the given materials. The following information is intended to give insight to the reader of this group's feets and decisions which are further elaborated on throughout the document. Furthermore the calculations and engineering drawings can be consulted in Appendix A: Supplementary Material.
+\end{abstract}
+
+\section{Methodology}
+\subsection{Design Proposal and Model Scaling}
+As per the project constraints[1], a box girder bridge was to be built out of matboard and held together by contact cement. The contact cement used for the project is \emph{LePage Heavy Duty Contact Cement}[2] while the matboard itself is procured from \emph{Peterboro Matboards Inc.} with the following dimensions \\
+(Note: Hereinafter this section, measurements are translated to mm with respect to slide rule precision):
+
+\begin{align*}
+32" &= 813~\text{mm} \\
+40" &= 1016~\text{mm} \\
+0.05" &= 1.270~\text{mm}
+\end{align*}
+
+Furthermore the final bridge would also have to fulfil certain boundary conditions including:
+
+\begin{align*}
+\text{Total length:} & ~1250 - 1270~\text{mm} \\
+\text{Maximum height:} & ~200~\text{mm} \\
+\text{Flat portion:} & ~50~\text{mm} \\
+\text{Minimum deck width:} & ~100~\text{mm}
+\end{align*}
+
+\noindent
+where the maximum height and flat portion conditions would be enforced at the support locations, located at both ends of the bridge.
+
+With these boundary conditions met, the final bridge would then be subjected to a 3-segment train with an initial weight of 400 N, where after each test, the amount of load is increased, as seen on Figures 1 \& 2.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{Screenshot 2022-11-27 210850.jpg}
+\caption{Train dimensions}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{Screenshot 2022-11-27 210940.jpg}
+\caption{Loading schematic of train movement}
+\end{figure}
+
+\subsection{Iterative Design Process}
+\subsubsection{Design 0}
+Design 0 was a design provided in the project handout in which it consisted of dimensions:
+
+\begin{align*}
+\text{Top flange width:} & ~100~\text{mm}\\
+\text{Cross-section width:} & ~80~\text{mm}\\
+\text{Base of top flange to base:} & ~75~\text{mm}\\
+\text{Flange width:} & ~1.270~\text{mm}
+\end{align*} 
+
+\noindent
+and a schematic was provided, as shown in Figure 3.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{Screenshot 2022-11-27 213625.jpg}
+\caption{Schematic of Design 0}
+\end{figure}
+
+The analysis of Design 0 consisted of analysing the factor of safety (hereinafter referred to as \emph{FOS}) and failure load, and the generated FOS of 0.617 provided insight as to how Design 0 fails under flexural buckling; the top flange buckles under the 400 N load as Design 0 is calculated to only withstand 247 N.
+
+To address Design 0's failure of the top flange, it was decided that the top flange would have to be thickened as plate buckling capacity is inversely proportional to the thickness of the plate. Therefore it was decided that the width of the top flange would be increased as to address the plate buckling capacity of the middle section of the flange.
+
+\subsubsection{Design 1}
+\noindent
+Changes applied to Design 0:
+
+\begin{align*}
+\text{Top Flange thickened to 2.54 m}
+\end{align*}
+
+To address the flexural buckling, the top flange's thickness was increased to the thickness of two layers (2.54 mm), increasing the FOS to 1.670. However, even though this extension to the top flange \emph{was} an improvement, the FOS was still considered uncomfortably low, therefore to address this issue, the bending stress at the top of the bridge had to be reduced. Bending stress at any given point is calculated via:
+
+\begin{align}
+\frac{My}{I}
+\end{align}
+
+\noindent
+where \emph{y} is the distance between the centroidal axis and the applied moment, \emph{I} is the second moment of area, and \emph{M} is the applied bending moment. Because the bending moment was immutable due to it being the train load, \emph{y} had to be decreased and \emph{I} had to be increased as to reduce the bending stress of the beam.
+
+\subsubsection{Design 2}
+\noindent
+Changes applied to Design 1:
+
+\begin{align*}
+\text{Side flange length increase to 150mm}
+\end{align*}
+
+To increase \emph{I}, the length of the side flanges of the bridge were increased from 75 mm to 150 mm. Because \emph{I} is proportional to \emph{A} (cross section area) and  \emph{$d^2$} (distance from the centroidal axis of each rectangular section to the centroidal axis of full cross-section squared), \emph{I} was increased by increasing the side flanges' length as doing so would increase the area of the cross-section and also further the top and bottom flanges apart, increasing the distance from the centroidal axis. This decision would still cause the bridge to fail due to shear buckling at the side flanges which were rated to withstand only 735 N. Therefore to address this issue, it was decided that the next design would have a reduction in plate height or bridge length.
+
+\subsubsection{Design 3}
+\noindent
+Changes applied to Design 2:
+
+\begin{align*}
+\text{No. of diaphragms increased to 11}
+\end{align*}
+
+To address the failure due to shear buckling, as referred to in Section 1.2.3, the number of diaphragms was increased from a count of 4 to 11, equally spaced along the main span. These diaphragms restrained the side plates of the bridge cross section, effectively separating the plate into shorter sections that would buckle separately. But while this change \emph{did} increase the FOS to a comfortable value of 3.71, the amount of material used greatly exceeded the constraints set in Section 1.1 and the bridge itself was still calculated to fail due to compression.
+
+\subsubsection{Design 4}
+\noindent
+Changes applied to Design 3:
+
+\begin{align*}
+\text{Height reduced to 135 mm}
+\end{align*}
+
+To address the overuse of material in Section 1.2.4, the height of the side flanges were reduced from 150 mm to 135 mm as to reduce the cross-sectional area. This generated a still acceptable FOS of 3.27, however the bridge was still expected to fail due from compression.
+
+\subsubsection{Design 5}
+\noindent
+Changes applied to Design 4:
+
+\begin{align*}
+\text{Width of top flange increased to 150 mm}
+\end{align*}
+
+To address the failure due to compression, the compression FOS was increased. This was done by increasing the top flange width to 150 mm from the previous 130 mm which increased \emph{I} and moved the centroidal axis closer to the top of the beam, effectively reducing the compressive stress. Similar to Design 3 however, the amount of material needed exceeded the constraints of Section 1.1.
+
+\subsubsection{Design 6}
+\noindent
+Changes applied to Design 5:
+
+\begin{align*}
+& \text{No. of diaphragms decreased to 9}\\
+& \text{Diaphragms split into thirds}\\
+& \text{Width of bottom flange reduced to 60 mm}
+\end{align*}
+
+To reduce the amount of material used, each diaphragm was cut so that the middle third could be saved, reducing the amount of material needed for each diaphragm. Furthermore, the width of the bottom section was also reduced to 60 mm to reduce cross-sectional area and relocate the centroidal axis closer to the top, reducing bending stress. This change however would cause the bridge to fail due to the buckling caused by shear stress, moreover, Design 6 still used too much material.
+
+\subsubsection{Design 7 - Final }
+\noindent
+Changes applied to Design 5:
+
+\begin{align*}
+& \text{Glue tabs added at the bottom of the side flanges}\\
+& \text{Width of all glue tabs was reduced to 4mm}
+\end{align*}
+
+The only changes made for Design 7 were those of adding glue tabs between the bottom flange to the side flanges. This was done because folding a large piece of matboard to form both the side flanges and the bottom flange was considered difficult to do during the construction process. Therefore, a method where the bottom and side flanges were cut separately and glued together were used. The bottom glue tabs were further from the centroidal axis than the top glue tabs, but due to the bottom flange having a lower area than the top flange, the value of \emph{Q} was much lower than at the top glue joints. The shear stress would have to be lower at these glue joints, meaning the factor of safety would have to be higher. As a result, there was no need to calculate factors of safety on these glue joints, as they would always be higher than the factor of safety for the top glue tabs. 
+
+Additionally, the width of the glue tabs was reduced because their factors of safety was extremely high. Therefore, 1 mm was removed from the width. The width was not reduced any further because doing so would make bending the matboard too risky to do, especially when forming glue tabs of smaller widths.
+
+With all the design decisions made the final partitions were drawn as shown on Figure 4, 5, 6, and 7.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{Screenshot 2022-11-27 233616.jpg}
+\caption{Piece distribution}
+\end{figure}
+
+And the Design 7 bridge was constructed.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{Screenshot 2022-11-27 234109.jpg}
+\caption{Bridge - Side view}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{Screenshot 2022-11-27 234121.jpg}
+\caption{Bridge - Profile view}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{20221129_203748.jpg}
+\caption{Bridge - Cross section view}
+\end{figure}
+
+\subsubsection{Note}
+It should be noted that:\\
+
+\begin{itemize}
+\item all changes to the design (except for the glue tabs) were made in intervals of 5 mm for ease of measure.\\
+
+\item the shear buckling at the top flange was not considered as the shear force at the top flange was negligible.\\
+
+\item self-weight of the matboard was ignored. The matboard weighed only 750 g $\approx$ 7.36 N. This was considered comparably small.\\
+
+\item shear values were calculated for all train positions on the main spans, including locations where the train was only partially on the bridge. Therefore, the max shear force used to calculate factors of safety was 257 N as opposed to the 240 N that is calculated when only the train's positions that fully on the main span are considered. The maximum shear force at other locations were also affected
+\end{itemize}
+
+
+\section{Construction}
+\subsection{Cutting the Matboard}
+Construction began with the matboard being cut into segments that would comprise the top, bottom, and side flanges of the bridge, as seen on Figure 4. Since the bridge had a minimum required length of 1250 mm, and the length of the matboard was only 1016 mm, the board had to be cut into smaller sections and grafted together. Out of a total material area of  826,000 mm$^2$, approximately 809,000 mm$^2$ was used in the building of the top, bottom, and side flanges whereas the remaining matboard was used to reinforce the points of connection between different surfaces, as shown on Figure 8. The decision was made to make the top of the bridge double-layered and the side and bottom flanges single layered.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=3.7in]{20221129_203813.jpg}
+\caption{Bridge - Side view, notice the vertical graft connections, marked by the yellow strips}
+\end{figure}
+
+\subsection{Gluing}
+Once the pieces were cut from the matboard, they were glued together in the following order: 
+
+\begin{itemize}
+\item The two pieces cut for the top flange were glued together to make the top flange double layered 
+\item The two pieces of the bottom flange were glued together by grafting two square strips of matboard across the two pieces
+\item The bottom flange was cut to the height 143 mm and was folded so that the top and bottom formed 4 mm inward tabs. Glue was then applied along these tabs and each piece of the side flanges was glued to the bottom flange at one tab
+\item With the bridge now forming a U-shape, 18 thin diaphragms were installed in sets of 2 along the length of the bridge, with diaphragm being fitted between the two glue tabs of the side flange and attached to it and the bottom flange with the contact cement 
+\item With the diaphragms secured to the side and bottom flanges, the top flange was then lowered onto the tabs of the side flanges and secured with contact cement. This would finalize the gluing segment of construction
+\item Remaining pieces of matboard were used to reinforce various connection points where needed
+
+\end{itemize}
+
+\subsubsection{Note}
+The diaphragms were cut to be $\frac{1}{3}$ of the width of the bridge cross-section so when placed in sets of 2, one on each side flange, the diaphragms comprised 9 rigid cross-sections with $\frac{2}{3}$ of the cross-section filled in by matboard and the middle $\frac{1}{3}$ is left empty. This design allows the bridge to remain rigid and prevents shear buckling while minimizing material use as possible, as seen on Figure 7.
+
+\subsection*{Appendix A: Supplementary Material}
+\noindent
+Henkel Contact Cement data sheet:\\
+\url{https://dm.henkel-dam.com/is/content/henkel/tds\\
+-1504637-1504724-ca-en-lepage-heavy-duty-blue-\\
+contact-cement-carded-tube-30ml-metal-tin-with-brush\\
+-250mlpdf}
+\\
+\noindent
+Calculation data sheet:\\
+\url{https://docs.google.com/spreadsheets/d/1XtSeFmeSxR-y_UFyhok6LY9GlFsO3faGBzxqhWXcB1A/edit?usp=sharing}
+\\
+\noindent
+Engineering drawings:\\
+\url{https://drive.google.com/file/d/1NTU7p5_f3d56gJmyAFvOYE1dJNZHhPvH/view}
+\\
+\noindent
+Formulas:\\
+\url{https://drive.google.com/file/d/1Rvs489guMvWfsvGgG70DtQU9ds-IkVCE/view?usp=sharing}\\ 
+\url{https://drive.google.com/file/d/1da-h-5WCcs8Vx9EKyrVH-eF335d-JmUT/view?usp=sharing}\\
+
+\subsection*{References}
+\noindent
+[1] Matboard Bridge Design Project Handout. CIV102 - University of Toronto, Department of Civil \& Mineral Engineering\\
+\\
+\noindent
+[2] Henkel Contact Cement data sheet \\
+\\
+\noindent
+[3] Course Notes
+
+ 
+\end{document}

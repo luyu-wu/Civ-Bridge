@@ -31,25 +31,74 @@
 \maketitle
 
 \section{Introduction}
-This project is the CIV102  Bridge Design Project, where teams are working to design and construct a small bridge that is capable of spanning 1,200 mm using only one sheet of matboard and two tubes of contact cement. The design process relies on concepts like beam principle, thin-plate buckling principle, and the material properties. By iteratively analyzing multiple designs, the team aims to develop a bridge that is both structurally efficient and able to safely carry the moving train load in the testing.
+This project is the CIV102  Bridge Design Project, where teams are working to design and construct a small bridge that is capable of spanning 1,200 mm
+using only one sheet of matboard and two tubes of contact cement. The design process relies on concepts like beam principle, thin-plate buckling 
+principle, and the material properties. By iteratively analyzing multiple designs, the team aims to develop a bridge that is both structurally 
+efficient and able to safely carry the moving train load in the testing. \\
 
+The project's objective is to understand how failure mechanisms constrain the behavior of thin-plate structures. The tensile strength (30 MPa), 
+compressive strength (6 MPa), and shear strength (4 MPa) of Martboard impose clear performance limitations, 
+and compression and buckling are important factors in the design process.\\
 
-The project's objective is to understand how failure mechanisms constrain the behavior of thin-plate structures. The tensile strength (30 MPa), compressive strength (6 MPa), and shear strength (4 MPa) of Martboard impose clear performance limitations, and compression and buckling are important factors in the design process.
-
-
-During each design iteration, the team diverged into the design space to consider better possible solutions. After converging, we investigated optimizing web height, flange width, diaphragm spacing, and splice reinforcement to improve stiffness, reduce applied stresses, and delay buckling while staying within the material and constructability constraints. Shear force diagrams (SFDs), bending moment diagrams (BMDs), and their respective envelopes were computed for various train positions to predict applied stresses along the span. These stresses were then compared with material and buckling capacities to determine the factor of safety for each failure situation. This report provides an overview of the design process during building a bridge, and the engineering skills with CIV102 concept was collaborative to build a safe and effective bridge.
+During each design iteration, the team diverged into the design space to consider better possible solutions. After converging, we investigated 
+optimizing web height, flange width, diaphragm spacing, and splice reinforcement to improve stiffness, reduce applied stresses, and delay buckling 
+while staying within the material and constructability constraints. Shear force diagrams (SFDs), bending moment diagrams (BMDs), and their respective
+envelopes were computed for various train positions to predict applied stresses along the span. These stresses were then compared with material and buckling 
+capacities to determine the factor of safety for each failure situation. This report provides an overview of the design process during building a bridge, and the 
+engineering skills with CIV102 concept was collaborative to build a safe and effective bridge.
 
 \section{Design iteration}
-Initially, we considered a few options. In our first concept diverging stage, we thought of different cross-sections that may be available to us to start from. Choosing between triangular, trapezoidal, and rectangular, we ultimately decided on using a rectangular cross-section.
+Initially, we considered a few options. In our first concept diverging stage, we thought of different cross-sections that may be available to us to 
+start from. Choosing between triangular, trapezoidal, and rectangular, we ultimately decided on using a rectangular cross-section. \\
+
+Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between 
+trapezoidal and rectangular, noting that modelling is an important part of this project, we chose rectangular for the simplified geometry and load profiles.
+
+\subsection{Design iteration 1}
+
+As our first design iteration, we considered a HSS box girder. \\
+
+Since the track width must be less or equal to 100mm, we allowed the square to be 100mm x 100mm.
+
+\subsection{Design iteration 2 - Adding Diaphragms}
+
+Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram. We also saw this as a 
+possible failure mode in papers [1]. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear 
+buckling, which also benefits from diaphragms. 
+
+\subsection{Design iteration 3 - Increasing Top Width/Number}
+Analyzing the equations for critical loading, we noticed that all of them are to some level, proportional to I. We realize that by optimizing I within the given 
+materials, we can significantly increase the stiffness of the bridge and increase the critical loads. This is because $\sigma\propto I^{-1}$. 
+
+\subsection{Design iteration 4 - Removing Bottom/Diaphragm Support}
+Next, we realized that since only the upper half of the box girder is in compression, while the bottom is in tension (a far less likely fail case, especially 
+with the materials properties), it seemed more worth it to place the bottom paneling to the top. Doing this, we get a $\Pi$ shape of the bridge. However, we 
+realized that removing the bottom shifts the centroid up. This has 2 effects. First, it decreases the distance from the centroid, through $\frac{My}{I}$ this decreases 
+the stress. Second, it decreases the MOI as the distance of the deck is closer to the centroid.
+
+\subsection{Design iteration 5 - Non-uniform diaphragms for better point load support}
+After analyzing which parts along the cross-section of the bridge are under the most risk (the top half), we analyzed the bridge along the length axis. Here, we notice 
+that in a histogram of the maximum bending moment a given point on the bridge experiences, the center is significantly higher than the rest.\\
+
+Through this, we determined it may be fruitful to have non-uniform amounts of support throughout the bridge.
+
+\subsection{Design iteration 6 - Non-uniform backing}
+Lastly, when taking the amount of material we had into consideration, we saw that stacking layers across the entire track was unfruitful use. Thus, we decided to non-uniformly
+ increase the layers of the track, such as to have the highest I in the middle, and allow the maximum experienced bending moment to be as uniform as possible throughout the bridge.\\
+
+We do note that there are possible difficulties in applying equations to box girders of non-uniform I. As noted in the paper by Molina-Velligas et al. [2], the use of non-uniform 
+beams can significantly complicate beam (and thus also thin-plate) equations. The ultimate solution for this would be to use FEM software, however, due to constraints, we were unable to.
 
 
-Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between trapezoidal and rectangular, noting that modelling is an important part of this project, we chose rectangular for the simplified geometry and load profiles.
+\section{Optimization Methodology}
+\subsection{Determining Optimization Parameters}
+
+\section{Construction}
+
+\section{Conclusion}
 
 
 \section{Bibliography}
-
-https://www.mybib.com/j/LuxuriantAttractivePony USE THIS FOR CITATIONS
-
 
 
 [1] C. P. Heins, “Box Girder Bridge Design; State of the Art,” Engineering Journal, vol. 15, no. 4, pp. 126–142, Dec. 1978, doi: https://doi.org/10.62913/engj.v15i4.322.
