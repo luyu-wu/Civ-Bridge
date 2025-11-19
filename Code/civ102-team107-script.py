@@ -93,33 +93,59 @@ def failure_load(max_M):
 # h: web height
 # b: flange width
 # all units in mm
-def cross_section_failure_moment(t1, t2, h, b):
-    ybar = (t2*h**2+t1*b*h+b*t1**2/2)/(2*t2*h+t1*b)
-    I = b*t1**3/12 + b*t1*(h+t1/2 - ybar)**2 + t2*h**3/6 + 2*t2*h*(h/2 - ybar)**2
+def cross_section_failure_moment(t1, t2, h, b, t3, n):
+    A1, A2, A3 = t1*b, 2*t2*h, n*t3*(b-2*t2)
+    y1, y2, y3 = h + t1/2, h/2, h - n*t3/2
+    ybar = (A1*y1 + A2*y2 + A3*y3) / (A1 + A2 + A3)
+    I = b*t1**3/12 + t2*h**3/6 + (b-2*t2)*(n*t3)**3/12 \
+    + A1*(y1 - ybar)**2 + A2*(y2 - ybar)**2 + A3*(y3 - ybar)**2
     # calculate stresses from material ult and thin plate buckling; units in MPa
     sigma_buckle_flange = (4*3.1416**2*4000)/(12*(1-0.2**2)) * (t1/b)**2
-    sigma_buckle_web = (6*3.1416**2*4000)/(12*(1-0.2**2)) * (t2/h)**2
+    sigma_buckle_web = (6*3.1416**2*4000)/(12*(1-0.2**2)) * (t2/(h-n*t3))**2
     sigma = min(6, sigma_buckle_flange, sigma_buckle_web)
-    M = sigma * I / (h+t1 - ybar)
-    return M
+    M_comp = sigma * I / (h+t1 - ybar)
+    M_tens = 30 * I / ybar
+    return min(M_comp, M_tens)
 
 # calculates if a cross section will fail to shear
-# returns True if it does not fail
 def shear_failure(t1, t2, h, b, P):
-    V_max = get_SFE(P)[0]
+    V_max = get_SFE(P)[300]
     ybar = (t2*h**2+t1*b*h+b*t1**2/2)/(2*t2*h+t1*b)
     I = b*t1**3/12 + b*t1*(h+t1/2 - ybar)**2 + t2*h**3/6 + 2*t2*h*(h/2 - ybar)**2
     V_glue = 2 * I / (h * (ybar - h/2))
     V_ybar = 8 * I / ybar**2
-    return V_max < max(V_glue, V_ybar)
+    if V_max > V_glue:
+        print("Shear failure by glue! V_max =", V_max, "N, V_glue =", V_glue, "N, V_ybar =", V_ybar, "N")
+    elif V_max > V_ybar:
+        print("Shear failure by web yield! V_max =", V_max, "N, V_ybar =", V_ybar, "N")
+    else:
+        print("No shear failure.")
 
 # testing
 if __name__ == "__main__":
-    get_diagram(get_BME(288)) # 1kN
-    get_diagram(get_SFE(288)) # 1kN
 
     # cross section test
-    t1, t2, h, b = 1.27*6, 1.27, 74, 121
-    max_load = failure_load(cross_section_failure_moment(t1, t2, h, b))
-    print(max_load)
-    print(shear_failure(t1, t2, h, b, max_load/3.48))
+    # t1, t2, h, b, t3 = 1.27*2, 1.27, 80, 121, 1.27
+    # max_load = failure_load(cross_section_failure_moment(t1, t2, h, b, t3, 6))
+    # print(max_load)
+    # print(shear_failure(t1, t2, h, b, max_load/3.48))
+
+    # calculate length of each layer required
+    t1, t2, h, b, t3 = 1.27*2, 1.27, 80, 121, 1.27
+    for n in range(0, 6):
+        M = cross_section_failure_moment(t1, t2, h, b, t3, n)
+        BME = get_BME(288) # 1kN
+        x1, x2 = -1, -1
+        for i in range(1251):
+            if abs(BME[i]) > M:
+                x1 = i
+                break
+        for i in range(1250, -1, -1):
+            if abs(BME[i]) > M:
+                x2 = i
+                break
+        print(n, M, x1, x2) 
+        # number of layers, max moment, first failure point, last failure point
+    
+    # get_diagram(get_BME(288)) # 1kN
+    # get_diagram(get_SFE(288)) # 1kN
