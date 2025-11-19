@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1763523875.22817 "main.aux" "main.bbl" "main" 1763523936.64735 0
-  "./mainNotes.bib" 1763523936.44783 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
+["bibtex main"] 1763525060.82166 "main.aux" "main.bbl" "main" 1763525106.69938 0
+  "./mainNotes.bib" 1763525106.48916 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/revtex/apsrev4-2.bst" 1601932770 69609 e9dea59f0e753ccda3ddc8f5806d846d ""
-  "main.aux" 1763523936.44737 2325 94c8c9c2c4663590d6689387234ff87b "pdflatex"
+  "main.aux" 1763525106.48867 2356 c06676a161ac46db7dbd6bb14280caa8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1763523936.02494 "/Users/henrykim/Library/CloudStorage/OneDrive-UniversityofToronto/Henry Kim/Personal/School/University of Toronto/First Year/Fall Term/CIV102H1 F (Fall) Structures and Materials - An Introduction to Engineering Design/Civ-Bridge/Design-Report/main.tex" "main.pdf" "main" 1763523936.6475 0
-  "/Users/henrykim/Library/CloudStorage/OneDrive-UniversityofToronto/Henry Kim/Personal/School/University of Toronto/First Year/Fall Term/CIV102H1 F (Fall) Structures and Materials - An Introduction to Engineering Design/Civ-Bridge/Design-Report/main.tex" 1763523935.95243 6991 6849d43a889882ebd462a1a19b2aac4e ""
+["pdflatex"] 1763525106.05923 "/Users/henrykim/Library/CloudStorage/OneDrive-UniversityofToronto/Henry Kim/Personal/School/University of Toronto/First Year/Fall Term/CIV102H1 F (Fall) Structures and Materials - An Introduction to Engineering Design/Civ-Bridge/Design-Report/main.tex" "main.pdf" "main" 1763525106.69953 0
+  "/Users/henrykim/Library/CloudStorage/OneDrive-UniversityofToronto/Henry Kim/Personal/School/University of Toronto/First Year/Fall Term/CIV102H1 F (Fall) Structures and Materials - An Introduction to Engineering Design/Civ-Bridge/Design-Report/main.tex" 1763525105.98445 7133 a627b4e343710fe7476f2c0aa9322ff2 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1246382020 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -117,10 +117,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1763520119 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763520016 3345741 99975e48ea75d789ff6406e0eaaea9ea ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "main.aux" 1763523936.44737 2325 94c8c9c2c4663590d6689387234ff87b "pdflatex"
-  "main.bbl" 1763523875.30993 1980 28c19e8c34138b62d4af8c2d0ed844b0 "bibtex main"
-  "main.out" 1763523936.4477 3115 598465cc49204fdd252b577f4299235f "pdflatex"
-  "main.tex" 1763523935.95243 6991 6849d43a889882ebd462a1a19b2aac4e ""
+  "main.aux" 1763525106.48867 2356 c06676a161ac46db7dbd6bb14280caa8 "pdflatex"
+  "main.bbl" 1763525060.91729 1980 28c19e8c34138b62d4af8c2d0ed844b0 "bibtex main"
+  "main.out" 1763525106.48903 3115 598465cc49204fdd252b577f4299235f "pdflatex"
+  "main.tex" 1763525105.98445 7133 a627b4e343710fe7476f2c0aa9322ff2 ""
   (generated)
   "main.aux"
   "main.log"

@@ -1,5 +1,4 @@
-\documentclass[prl,twocolumn,amsmath,amssymb,superscriptaddress]{revtex4-2}
-
+\documentclass[prl,twocolumn,secnumarabic, amsmath,amssymb,superscriptaddress]{revtex4-2}
 \usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{braket}
@@ -19,6 +18,11 @@
 \usepackage{bm}
 \usepackage{lipsum}
 %end of packages
+
+\setcounter{secnumdepth}{2}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
 \begin{document}
 \title{CIV102 Report}
@@ -84,7 +88,7 @@ Through this, we determined it may be fruitful to have non-uniform amounts of su
 
 \subsection{Design iteration 6 - Non-uniform backing}
 Lastly, when taking the amount of material we had into consideration, we saw that stacking layers across the entire track was unfruitful use. Thus, we decided to non-uniformly
- increase the layers of the track, such as to have the highest I in the middle, and allow the maximum experienced bending moment to be as uniform as possible throughout the bridge.\\
+increase the layers of the track, such as to have the highest I in the middle, and allow the maximum experienced bending moment to be as uniform as possible throughout the bridge.\\
 
 We do note that there are possible difficulties in applying equations to box girders of non-uniform I. As noted in the paper by Molina-Velligas et al. [2], the use of non-uniform 
 beams can significantly complicate beam (and thus also thin-plate) equations. The ultimate solution for this would be to use FEM software, however, due to constraints, we were unable to.
@@ -100,16 +104,12 @@ beams can significantly complicate beam (and thus also thin-plate) equations. Th
 
 \section{Bibliography}
 
-
 [1] C. P. Heins, “Box Girder Bridge Design; State of the Art,” Engineering Journal, vol. 15, no. 4, pp. 126–142, Dec. 1978, doi: https://doi.org/10.62913/engj.v15i4.322.
-
-
 
 [2] Juan Camilo Molina-Villegas, J. Eliecer, and Giovanni Martínez Martínez, “Closed-form solution for non-uniform Euler–Bernoulli beams and frames,” Engineering structures/Engineering structures (Online), vol. 292, pp. 116381–116381, Oct. 2023, doi: https://doi.org/10.1016/j.engstruct.2023.116381.
 
 
 \section{Appendix}
-
 
 \subsection{AI Statement}
 
