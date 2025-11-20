@@ -1,5 +1,7 @@
 coefficients = []
 
+# note that for bridge lengths, only the portion between the supports
+# is considered (0 to 1200 mm)
 def load_case(n):
     global coefficients
     if n == 1:
@@ -13,7 +15,7 @@ def load_case(n):
         # rightmost car is 1.1P, leftmost car is 1.38P
         # load distribution: 
         # 0.55 176 0.55 164 0.5 176 0.5 164 0.69 176 0.69
-        # supports at 0 and 1250
+        # supports at 0 and 1200
         # let x be the distance travelled by the front wheels of the train
         coefficients = [[0.69, 0], [0.69, 176], [0.5, 340], [0.5, 516], 
                 [0.55, 680], [0.55, 856]]
@@ -23,10 +25,10 @@ def supports_reactions(x, P):
     MA, MB = 0, 0
     for c in coefficients:
         x_i = x + c[1]
-        if 0 <= x_i <= 1250:
+        if 0 <= x_i <= 1200:
             MA += c[0] * P * x_i
-            MB += c[0] * P * (1250 - x_i)
-    return MB/1250, MA/1250
+            MB += c[0] * P * (1200 - x_i)
+    return MB/1200, MA/1200
 
 # calculates shear force for every integer length given x and P
 # at a given train displacement
@@ -34,32 +36,32 @@ def supports_reactions(x, P):
 def shear_force(x, P):
     A, B = supports_reactions(x, P)
     V = []
-    for i in range(1251):
+    for i in range(1201):
         V_x = A
         for c in coefficients:
             x_i = x + c[1]
             if 0 <= x_i <= i:
                 V_x -= c[0] * P
         V.append(V_x)
-    V[1250] += B
+    V[1200] += B
     return V
 
 # returns M, an array of bending moments for each mm 
 # at a given train displacement
 def bending_moment(x, P):
     V = shear_force(x, P)
-    M = [0 for i in range(1251)]
-    for i in range(1, 1251):
+    M = [0 for i in range(1201)]
+    for i in range(1, 1201):
         M[i] = -V[i] + M[i-1]
     return M
 
 # returns bending moment envelope, an array of the maximum bending moment of each mm
 # under all possible displacements of the train
 def get_BME(P):
-    BME = [0 for i in range(1251)]
-    for x in range(2107):
+    BME = [0 for i in range(1201)]
+    for x in range(-856, 1201):
         M = bending_moment(x, P)
-        for i in range(1251):
+        for i in range(1201):
             if BME[i] > M[i]:
                 BME[i] = M[i]
     return BME
@@ -68,10 +70,10 @@ def get_BME(P):
 # under all possible displacements of the train
 # uses absolute values
 def get_SFE(P):
-    SFE = [0 for i in range(1251)]
-    for x in range(2107):
+    SFE = [0 for i in range(1201)]
+    for x in range(-856, 1201):
         V = shear_force(x, P)
-        for i in range(1251):
+        for i in range(1201):
             if SFE[i] < abs(V[i]):
                 SFE[i] = abs(V[i])
     return SFE
@@ -79,7 +81,7 @@ def get_SFE(P):
 # draws a diagram for visualization
 def get_diagram(M):
     import matplotlib.pyplot as plt
-    plt.plot([i for i in range(1251)], M)
+    plt.plot([i for i in range(1201)], M)
     plt.show()
 
 # gets failure load from a given max M (positive value)
@@ -98,14 +100,14 @@ def get_failure_load(max_M):
     return ((P_low + P_high) / 2) * 3.48 # calculate total load
 
 # calculates the FOSs for a cross section to fail in bending
-# t: thickness of flanges and web
-# b1: top flange width
-# b2: bottom flange width
-# h: web height
-# n: number of layers of additional material below top flange
-# all length units in mm
-# M: actual bending moment in Nmm
 def get_flexural_FOS(t, b1, b2, h, n, M):
+    # t: thickness of flanges and web
+    # b1: top flange width
+    # b2: bottom flange width
+    # h: web height
+    # n: number of layers of additional material below top flange
+    # all length units in mm
+    # M: actual bending moment in Nmm
     # avoid division by zero
     if M == 0:
         return [float('inf'), float('inf'), float('inf'), float('inf')]
@@ -158,11 +160,11 @@ def design_geometry():
     n = 0
     while 1:
         x1, x2 = -1, -1
-        for i in range(1251):
+        for i in range(1201):
             if min(get_flexural_FOS(t, b1, b2, h, n, abs(BME[i]))) < 1:
                 x1 = i
                 break
-        for i in range(1250, -1, -1):
+        for i in range(1200, -1, -1):
             if min(get_flexural_FOS(t, b1, b2, h, n, abs(BME[i]))) < 1:
                 x2 = i
                 break
@@ -171,7 +173,7 @@ def design_geometry():
         print(n, x1, x2) 
         # number of layers, min FOS, first failure point, last failure point
         n += 1
-    print("FOS for shear:", get_shear_FOS(t, b1, b2, h, 3, abs(SFE[2])))
+    print("FOS for shear:", get_shear_FOS(t, b1, b2, h, 1, abs(SFE[1])))
 
 # calculates and plots all FOS at every point
 # uses failure load
@@ -180,13 +182,13 @@ def plot_all_FOS(t, b1, b2, h, P):
     # set up arrays to store FOS
     comp, tens, flange, web, shear, buckle_shear = [], [], [], [], [], []
     # loop through every point
-    for x in range(1251):
+    for x in range(1201):
         n = 0
-        if 384 <= x <= 821:
+        if 380 <= x <= 820:
             n = 3
-        elif 257 <= x <= 980:
+        elif 238 <= x <= 962:
             n = 2
-        elif 49 <= x <= 1196:
+        elif 17 <= x <= 1183:
             n = 1
         # retrieve FOS values from functions
         [a, b, c, d] = get_flexural_FOS(t, b1, b2, h, n, -BME[x])
@@ -198,16 +200,19 @@ def plot_all_FOS(t, b1, b2, h, P):
         web.append(min(d, 10))
         shear.append(min(e, 10))
         buckle_shear.append(min(f, 10))
+        # check if any FOS is below 1
+        if min(a, b, c, d, e, f) < 1:
+            print("Failure at x =", x)
     
     # plot all diagrams
     import matplotlib.pyplot as plt
-    plt.plot([i for i in range(1251)], comp, label="Compression Yield FOS")
-    plt.plot([i for i in range(1251)], tens, label="Tension Yield FOS")
-    plt.plot([i for i in range(1251)], flange, label="Flange Buckling FOS")
-    plt.plot([i for i in range(1251)], web, label="Web Buckling FOS")
-    plt.plot([i for i in range(1251)], shear, label="Shear Yield FOS")
-    plt.plot([i for i in range(1251)], buckle_shear, label="Shear Buckling FOS")
-    plt.plot([i for i in range(1251)], [1 for i in range(1251)], 'k--', label="FOS = 1")
+    plt.plot([i for i in range(1201)], comp, label="Compression Yield FOS")
+    plt.plot([i for i in range(1201)], tens, label="Tension Yield FOS")
+    plt.plot([i for i in range(1201)], flange, label="Flange Buckling FOS")
+    plt.plot([i for i in range(1201)], web, label="Web Buckling FOS")
+    plt.plot([i for i in range(1201)], shear, label="Shear Yield FOS")
+    plt.plot([i for i in range(1201)], buckle_shear, label="Shear Buckling FOS")
+    plt.plot([i for i in range(1201)], [1 for i in range(1201)], 'k--', label="FOS = 1")
     plt.legend()
     plt.show()
 
@@ -218,22 +223,22 @@ if __name__ == "__main__":
     load_case(1)
 
     # BME and SFE
-    # get_diagram(get_BME(288))
-    # get_diagram(get_SFE(288))
+    get_diagram(get_BME(400))
+    get_diagram(get_SFE(400))
 
     # calculate for load case 2:
     load_case(2)
 
+    # calculate failure load
+    P = 315
+
     # BME and SFE
-    # BME, SFE = get_BME(288), get_SFE(288)
-    # get_diagram(BME)
-    # get_diagram(SFE)
+    BME, SFE = get_BME(P), get_SFE(P)
+    get_diagram(BME)
+    get_diagram(SFE)
 
     # cross sectional dimensions
-    t, b1, b2, h = 1.27, 120, 100, 74
-
-    # calculate failure load
-    P = 288
+    t, b1, b2, h = 1.27, 120, 100, 77
 
     # calculate FOS across every point
     plot_all_FOS(t, b1, b2, h, P)
