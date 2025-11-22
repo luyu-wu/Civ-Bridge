@@ -11,7 +11,7 @@
 \usepackage{color}
 \usepackage[dvipsnames,svgnames,table]{xcolor}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=NavyBlue,citecolor=BrickRed,urlcolor=NavyBlue}
+\hypersetup{colorlinks=true,linkcolor=Black,citecolor=BrickRed,urlcolor=NavyBlue}
 \usepackage{dsfont}
 \usepackage{color}
 \usepackage{grffile}
@@ -25,31 +25,79 @@
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
 \begin{document}
-\title{CIV102 Report}
+
+\vspace*{1cm}
+\title{\Large{Box Girder Bridge Design Report} }
 \author{Alan W., Luyu VK., Henry K.}
-\vspace{40pt}
 
-\date{\today}
-
+\date{November 7, 2025 - CIV102 Bridge Project - TA: Christian Pavaldis}
 
 \maketitle
 
+\onecolumngrid
+\tableofcontents
+
+\vspace{20pt}
+\textbf{\large{Glossary}} \vspace{10pt}
+
+$FOS$ - Factor of Safety
+
+$h$ - Height of referenced plate, height of box girder
+
+$b$ - Width of referenced plate, width of track
+
+$\sigma_{compression}$ - Compressive Pressure
+
+$\sigma_{tension}$ - Tensional Pressure
+
+$\sigma_{buckle}$ - Critical Buckling Pressure
+
+\vspace{10pt}
+\textbf{Equations}
+
+\hspace{-20pt}
+\begin{minipage}{0.48\textwidth}
+    \begin{equation}
+        \sigma = \frac{4\pi^2E}{12(1-\mu^2)}\left(\frac{t}{b}\right)^2
+        \label{Buckling of Compressive Flange}
+    \end{equation}
+    \centering Buckling of Compressive Flange
+\end{minipage}
+\hfill 
+\begin{minipage}{0.48\textwidth}
+    \begin{equation}
+        \sigma = \frac{0.425\pi^2E}{12(1-\mu^2)}\left(\frac{t}{b}\right)^2
+        \label{Buckling of Tips in Compression}
+    \end{equation}
+    \centering Buckling of Tips in Compression
+\end{minipage}
+
+\hspace{-20pt}
+\begin{minipage}{0.48\textwidth}
+    \begin{equation}
+        \sigma = \frac{6\pi^2E}{12(1-\mu^2)}\left(\frac{t}{b}\right)^2
+        \label{Flexural Web Buckling}
+    \end{equation}
+    \centering Flexural Web Buckling
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{equation}
+    \tau = \frac{5\pi^2E}{12(1-\mu^2)}\left[ \left(\frac{t}{h}\right)^2+ \left(\frac{t}{a}\right)^2 \right]
+    \label{Shear Web Buckling}
+\end{equation}
+\centering Shear Web Buckling
+\end{minipage}
+
+\newpage
+\twocolumngrid
+
 \section{Introduction}
-This project is the CIV102  Bridge Design Project, where teams are working to design and construct a small bridge that is capable of spanning 1,200 mm
-using only one sheet of matboard and two tubes of contact cement. The design process relies on concepts like beam principle, thin-plate buckling 
-principle, and the material properties. By iteratively analyzing multiple designs, the team aims to develop a bridge that is both structurally 
-efficient and able to safely carry the moving train load in the testing. \\
+This project is the CIV102  Bridge Design Project, where teams are working to design and construct a small bridge that is capable of spanning 1,200 mm using only one sheet of matboard and two tubes of contact cement. The design process relies on concepts like beam principle, thin-plate buckling principle, and the material properties. By iteratively analyzing multiple designs, the team aims to develop a bridge that is both structurally efficient and able to safely carry the moving train load in the testing.
 
-The project's objective is to understand how failure mechanisms constrain the behavior of thin-plate structures. The tensile strength (30 MPa), 
-compressive strength (6 MPa), and shear strength (4 MPa) of Martboard impose clear performance limitations, 
-and compression and buckling are important factors in the design process.\\
+The project's objective is to understand how failure mechanisms constrain the load of thin-plate structures. The tensile strength (30 MPa), compressive strength (6 MPa), and shear strength (4 MPa) of matboard impose clear performance limitations, and compression and buckling are important factors in the design process.
 
-During each design iteration, the team diverged into the design space to consider better possible solutions. After converging, we investigated 
-optimizing web height, flange width, diaphragm spacing, and splice reinforcement to improve stiffness, reduce applied stresses, and delay buckling 
-while staying within the material and constructability constraints. Shear force diagrams (SFDs), bending moment diagrams (BMDs), and their respective
-envelopes were computed for various train positions to predict applied stresses along the span. These stresses were then compared with material and buckling 
-capacities to determine the factor of safety for each failure situation. This report provides an overview of the design process during building a bridge, and the 
-engineering skills with CIV102 concept was collaborative to build a safe and effective bridge.
+During each design iteration, the team diverged into the design space to consider better possible solutions. After converging, we investigated optimizing web height, flange width, diaphragm spacing, and splice reinforcement to improve stiffness, reduce applied stresses, and delay buckling while staying within the material and constructability constraints. Shear force diagrams (SFDs), bending moment diagrams (BMDs), and their respective envelopes (BME, SFE) were computed for various train positions to predict applied stresses along the span. These stresses were then compared with material and buckling capacities to determine the factor of safety for each failure situation. This report provides an overview of the design process during building a bridge, and the engineering skills with CIV102 concept was collaborative to build a safe and effective bridge.
 
 \section{Design iteration}
 Initially, we considered a few options. In our first concept diverging stage, we thought of different cross-sections that may be available to us to 
@@ -60,88 +108,296 @@ trapezoidal and rectangular, noting that modelling is an important part of this 
 
 \subsection{Design iteration \#1\ - HSS}
 
-\textbf{Choose a 100mm x 100mm x 1.27mm HSS as our starting point. } \\
+\begin{center}
+    \textbf{Choose a 100mm x 100mm x 1.27mm HSS as our starting point. }
+\end{center}
+
 
 Starting the project, we considered a few concepts for the cross-section 
 of our girder. Triangular, rectangular, and trapezoidal were the three best choices for us. Choosing between triangular, trapezoidal, and rectangular, we ultimately decided on using a rectangular cross-section. \\
 
-Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between trapezoidal and rectangular, noting that modelling is an important part 
+Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between trapezoidal and rectangular, noting that modeling is an important part 
 of this project, we chose rectangular for the simplified geometry and load profiles. Since the track width must be less or equal to 100mm, we allowed the HSS to be 100mm x 100mm x 1.27mm. This is the most simple cross section, 
 thus a great starting point. \\
 
-% \begin{figure}[!htbp]
-% \includegraphics[width=1.5in]{images/image17.png}
-% \caption{image17}
-% \end{figure}
-
-% \begin{figure}[!htbp]
-% \includegraphics[width=1.5in]{images/image5.png}
-% \caption{image5}
-% \end{figure}
 
 \begin{figure}[!htbp]
-\centering
-\begin{minipage}{0.45\linewidth}
-    \includegraphics[width=\linewidth]{images/image17.png}
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\linewidth}
-    \includegraphics[width=\linewidth]{images/image5.png}
-\end{minipage}
-\caption{Initial rectangular cross-section sketches and 3D visualization.}
+    \centering
+    \begin{minipage}{0.45\linewidth}
+        \includegraphics[width=\linewidth]{images/image17.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\linewidth}
+        \includegraphics[width=\linewidth]{images/image5.png}
+    \end{minipage}
+    \caption{Initial rectangular cross-section sketches and 3D visualization.}
+    \end{figure}
+
+\subsection{Design Iteration \#2\ - Removing Bottom}
+
+\begin{center}
+    \textbf{Remove the bottom layer, such that the cross section is in a $\Pi$ shape.}
+\end{center}
+
+We realized that since the upper half of the box girder is in compression while the bottom is in tension. Compression is a far less likely fail case, considering the materials properties of $\sigma_{tensile} = 30 \sigma_{compression}=6$). Thus, it seemed more worth it to place the bottom paneling to the top. Doing this, we get a $\Pi$ shape of the bridge. However, we will keep bottom panels near the supports, since a bottom layer is required to rest the bridge on the supports. This will not be accounted for in our calculations, since this layer only exists near the supports. \\
+
+We also realized that removing the bottom shifts the centroid up. This has 2 effects. First, it decreases the distance from the centroid, through MY/I this decreases the stress. Second, it decreases the MOI as the distance of the deck is closer to the centroid.
+
+\begin{figure}[htb] 
+    \includegraphics[width=0.8\linewidth]{images/image4.png}
+    \caption{Calculated compressive strength for given bottom and top layer number combinations.}
+    \label{fig:heatmap}
 \end{figure}
 
-\subsection{Design iteration \#2\ - Removing Bottom}
+In Fig. \ref{fig:heatmap} we see that with 4 layers on top and no bottom gives similar results as 3 layers on top and 1 layer at the bottom for the compressive stress on the top layer, with the latter being slightly advantageous. However, the top layer will have more struggles with flange buckling if it has less layers, and construction would likely be easier if there is no bottom layer required. 
 
-Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram. We also saw this as a 
-possible failure mode in papers [1]. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear 
-buckling, which also benefits from diaphragms. 
+\subsection{Design Iteration \#3\ - Non-Uniform Top Layers}
+\begin{center}
+    \textbf{Make the flange out of layers of 1.27 mm each of varying lengths.}
+\end{center}
 
-\subsection{Design iteration 3 - Increasing Top Width/Number}
-Analyzing the equations for critical loading, we noticed that all of them are to some level, proportional to I. We realize that by optimizing I within the given 
-materials, we can significantly increase the stiffness of the bridge and increase the critical loads. This is because $\sigma\propto I^{-1}$. 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/image11.png}
+    \caption{Cross-section sketch for design iteration \#3}.
+    \label{fig:cross-section sketch for iteration 3}
+\end{figure}
 
-\subsection{Design iteration 4 - Removing Bottom/Diaphragm Support}
-Next, we realized that since only the upper half of the box girder is in compression, while the bottom is in tension (a far less likely fail case, especially 
-with the materials properties), it seemed more worth it to place the bottom paneling to the top. Doing this, we get a $\Pi$ shape of the bridge. However, we 
-realized that removing the bottom shifts the centroid up. This has 2 effects. First, it decreases the distance from the centroid, through $\frac{My}{I}$ this decreases 
-the stress. Second, it decreases the MOI as the distance of the deck is closer to the centroid.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/image18.png}
+    \caption{Flange side view sketch for design iteration \#3}.
+    \label{fig:Flange side view sketch for iteration 3}
+\end{figure}
 
-\subsection{Design iteration 5 - Non-uniform diaphragms for better point load support}
-After analyzing which parts along the cross-section of the bridge are under the most risk (the top half), we analyzed the bridge along the length axis. Here, we notice 
-that in a histogram of the maximum bending moment a given point on the bridge experiences, the center is significantly higher than the rest.\\
+Analyzing the equations for critical loading, we noticed that all of them are, to some level, proportional to I. We realize that by optimizing I within the given materials, we can significantly increase the stiffness of the bridge and increase the critical loads. This is because $\sigma\propto \frac{1}{I}$. For construction simplicity and material efficiency, we decided to just add more layers to the flange. \\
 
-Through this, we determined it may be fruitful to have non-uniform amounts of support throughout the bridge.
+When taking the amount of material we had into consideration, we saw that stacking layers across the entire track was unfruitful use. Thus, we decided to non-uniformly increase the layers of the track, such as to have the highest I in the middle, and allow the maximum experienced bending moment to be as uniform as possible throughout the bridge. From the bending moment envelope in Figure \ref{fig:BMD_diagram}, we see that the maximum moment the bridge can experience varies at different locations, with the centre experiencing the most moment. \\ \\
 
-\subsection{Design iteration 6 - Non-uniform backing}
-Lastly, when taking the amount of material we had into consideration, we saw that stacking layers across the entire track was unfruitful use. Thus, we decided to non-uniformly
-increase the layers of the track, such as to have the highest I in the middle, and allow the maximum experienced bending moment to be as uniform as possible throughout the bridge.\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/image13.png}
+    \caption{Bending Moment Envelope Diagram. This represents the maximal bending moment experienced by a point as the train passes over it. The orange line represents a hypothetical envelope with non-uniform layers, and thus non-uniform I.}
+    \label{fig:BMD_diagram}
+\end{figure}
 
-We do note that there are possible difficulties in applying equations to box girders of non-uniform I. As noted in the paper by Molina-Velligas et al. [2], the use of non-uniform 
-beams can significantly complicate beam (and thus also thin-plate) equations. The ultimate solution for this would be to use FEM software, however, due to constraints, we were unable to.
+We do note that there are difficulties in applying the learnt equations to girders of non-uniform I. As noted in the paper by Molina-Velligas et al. \cite{juancamilomolinavillegas_2023_closedform}, the use of non-uniform beams can significantly complicate beam (and thus also thin-plate) equations. The ultimate solution for this would be to use FEM software, however, due to constraints, we were unable to. \\
+
+For now, we will assume that we keep 2 layers with full length, and have shorter layers centred below the longer layers. Hand calculations will be done assuming there are 2 layers for the reasons cited above. 
+
+\subsection{Design Iteration \#4\ - Optimizing Height and Width}
+
+\begin{center}
+    \textbf{Set height to 80mm and width to 120mm, and move webs closer together.}
+\end{center}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/image19.png}
+    \caption{Cross-section sketch for design iteration \#4}.
+    \label{fig:cross-section sketch for iteration 4}
+\end{figure}
+
+To optimize the height and width of the beam, we investigate the most efficient use of the parameters through the given equations. \\
+
+In Equation [navier], $FOS \propto \sigma_{max}^{-1} \propto I \propto h^3$. 
+At the same time, $FOS \propto \sigma_{max}^{-1} \propto y^{-1} ~ h^{-1}$. 
+This means the FOS scales approximately quadratically with $h$ in terms of maximum stress. \\
+
+However, in Equation \ref{Flexural Web Buckling}, $FOS \propto \sigma_{allowable} \propto h^{-2}$. This means web buckling FOS is approximately not proportional against height. \\
+
+However, this is only the case when $\sigma_{allowable} = \sigma_{buckle}$, and $\sigma_{allowable} = min(\sigma_{yield}, \sigma_{buckle}) = min(6MPa, \sigma_{buckle})$. This means when $\sigma_{buckle} > 6MPa$, FOS still scales approximately quadratically with h. This means we want to solve for h such that $\sigma_{buckle} = 6MPa$, so that it buckles and yields simultaneously, thus can save the most material. \\
+
+Similarly, $FOS \propto \sigma_{max}^{-1} \propto I \propto b$, from Equation [navier], and $FOS \propto \sigma_{allowable} \propto b^{-2}$ from Equation [flange buckle]. This means the most efficient $b$ occurs when $\sigma_{buckle} = 6MPa$ for the flange. \\
+
+Solving for $b$ and $h$ below, we get $h_{web} = 74\,\text{mm, } b_{flange} = 121\,\text{mm}$. Note that these values differ from the actual height and width of the bridge. For example, $h_{web} = h_{bridge} - 1.27(n+1)$, where n is the total number of top + bottom layers. Due to project constraints, the overall height of the bridge must be in multiples of 20mm, thus we set h = 80mm. Since we cannot cut the material accurately within 1mm, we set b = 120mm. 
+[insert equations for b and h calculations] \\
+
+An additional benefit for this low value of height is that shear buckling is unlikely to occur: [insert equations for proof]. \\
+
+We also decided to move the webs closer together such that they are 100mm apart (which is the minimum distance as required by the project constraints), without changing the top layer’s width. This does not change $I$, but increases the FOS against flange buckling. 
+
+\subsection{Design Iteration \#5\ - Axial Shear Considerations}
+
+\begin{center}
+    \textbf{We will add at least 6 diaphragms, with 2 near each support and 2 in the middle.}
+\end{center}
+
+Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram. We also saw this as a possible failure mode in papers [1]. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear buckling, which also benefits from diaphragms. We also recognize that shear force is greatest at the supports, thus we dedicate 2 diaphragms near each support, much like Design 0 [cite].\\
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/image3.png}
+    \caption{Distortional Shear Failure Mode}.
+    \label{fig:Distortial Shear Failure Mode}
+\end{figure}
+
+Furthermore, verifications are done on the design for FOS against shear. Figure [shear code] shows the Python script for computing the FOS against shear and Figure [shear hand calc] shows the algebra done by hand to derive certain lines of the code. The failure mode for shear is computed to be matboard material failure at the centroidal axis upon comparison with shear failure at glue. Thus, no extra modifications are required to prevent the design from failing from shear. \\ \\ \\ \\
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/image16.png}
+    \caption{The python script for computing the FOS against shear}.
+    \label{fig:python script for FOS}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/image1.png}
+    \caption{The algebra done by hand to derive certain lines of the code}.
+    \label{fig:handwirte for code}
+\end{figure}
 
 
-\section{Optimization Methodology}
-\subsection{Determining Optimization Parameters}
+\subsection{Design Iteration \#6\ - Finalizing All Dimensions}
+\begin{center}
+    \textbf{Calculated required layer lengths. Exact dimensions see Table [design geometry output].}
+\end{center}
 
-\section{Construction}
+Figure [design geometry code] shows the python script for computing the required length of each layer under a 1kN load, given cross-sectional geometry of the design and its BME. Table [layer lengths] summarizes the output. \\ \\ \\
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/image10.png}
+    \caption{Python script for computing the required length of each layer. For more details on each helper function, see source code.}.
+    \label{fig:python script for each layer}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/image22.png}
+    \caption{Summary of code output for required layer lengths. The length of each layer will be used for design iteration \#6’s dimensions. }.
+    \label{fig:table for code output}
+\end{figure}
+
+
+\subsection{Design Iteration \#7\ - Final Design - Adding the Bottom Back}
+\begin{center}
+    \textbf{Added the bottom layer of the bridge back and recalculated required layer lengths.}
+\end{center}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/image20.png}
+    \caption{The diagram for the finalized cross-section with dimensions.}.
+    \label{fig:Final diagram - cross-section}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{images/image21.png}
+    \caption{The diagram for the top layers with dimensions.}.
+    \label{fig:Final diagram - top layer}
+\end{figure}
+
+In our previous calculations, we forgot to take into account failure by tension. Due to this, we added back the bottom layer. We ran the code in Figure [design geometry code] again, with modified cross-sectional properties. Figure [layers code output] shows the output for the range unable to support for each number of extra layers under a 1kN load. \\
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.2\linewidth]{images/image12.png}
+    \caption{Layer code output}.
+    \label{fig:layer code output}
+\end{figure}
+
+Shear calculations are also redone for the bottom glue connection. It becomes the new failure mode, which requires glue tabs to be installed at the bottom layer connections. 
+We then estimated this design’s failure load using a python script. Figure [all FOS] shows the graph of all of its FOS under failure load. The failure load is 1096N. The location with the least FOS is at x = 379 mm, with FOS = 1.009. \\
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{images/image2.png}
+    \caption{ A graph of all FOS under the final design’s failure load, with 0 and 1200 at the two supports. For visual purposes, the FOS plotted is limited to at most 10. }.
+    \label{graph for all FOS}
+\end{figure}
+
+We then planned out how to cut the matboard. After allocating area to the webs, bottom layer and the full length top layer with a 5mm tolerance for cutting, we decided to leave a greater length for each layer. Final product see Figure [final layers]. We also had 8 leftover diaphragms, which allows us to allocate them according to previously planned in design iteration \#5. Figure [final diaphragms] shows the diaphragms locations along the length of the bridge.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{images/image7.png}
+    \caption{Final diaphragms}.
+    \label{Final diaphragms}
+\end{figure}
+
+\section{Bridge Construction}
+Construction was started on November 19th, 5 days before the bridge testing so as to provide adequate time for the contact cement to dry. The construction was finished in two parts over separate days (Nov 19-20th). 
+
+\subsection{Matboard Cutting}
+On November 19th, we cut the matboard in the Myhal Centre Fabrication Facility (MYFab) with permission from the supervisors. Firstly, we measured and marked using tape measure and rulers according to our prepared matboard floorplan. To avoid errors, each person’s lines were double checked by another and redrawn. After this, precision knives were used to cut along the lines. In total, we were able to finish in roughly 3 hours.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{images/image9.png}
+    \caption{Us working on the matboard tracing and cutting. To the left, you can see the sketched lines and floorplan, while to the right you can see the precision knife cutting process.}.
+    \label{cutting1}
+\end{figure}
+
+\subsection{Matboard Gluing}
+The day following matboard cutting, we moved onto putting the bridge together. We chose the CampusOne Arts \& Crafts room (with permission from admin), as it had strong air ventilation. To ensure non-hazardous conditions and possible injury, all proper safety procedures were followed [3]. Unfortunately, due to one team member's medical conditions, we had to complete the glue with two members. \\ 
+
+The bridge was glued in order to ensure each glue joint could be adequately pressured while being set. This meant for instance, placing the diaphragms before the soffit but after the webs. Recommended contact cement was strictly followed, waiting a full 15 minutes for it to dry before applying contact [3]. Pressure was applied through the use of heavy books, a heavy stand, and biological hands (which proved to be very useful). A picture of the pipelined process can be seen in Figure [cutting].
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{images/image6.png}
+    \caption{Us working on the matboard gluing.}
+    \label{cutting2}
+\end{figure}
+
+\subsection{Further Optimization and the Finished Bridge}
+
+After finishing the limited basic construction (multi-layered track, web, diaphragms, soffit), we tested the bridge using light loads with the bridge suspended over 1 m. This revealed some weak areas in the bridge, which we patched using the remaining matboard and glue which we preserved for this case. \\
+
+The first issue was the multi-piece lengths (as the matboard cannot cover the full span). This created minor web buckling even under small loads (estimated as 20 kg). To address this, we grafted length pieces together using patches. This should have no effect on our calculations, as they assume a discrete length piece. \\
+
+The second issue we observed was the lifting of the soffit (bottom deck). This is because of the height mismatch between the diaphragms and the web (estimated to be around 1mm), where the soffit does not attach properly in certain areas near the diaphragms. This was addressed by adding glue tabs to hold the web to the soffit. This should have minimal effect on our calculations, as they assume this connection exists. \\
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{images/image8.png}
+    \caption{ The applied weight test is shown in this picture. In the highlighted part, you may observe the second issue (soffit uplift from web). This was addressed as mentioned in the text.}.
+    \label{Testing}
+\end{figure}
+
+
+After addressing these minor issues, our bridge was finished construction on 11:00 PM November 20th, 2025. \\
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{images/image15.png}
+    \caption{Our Bridge}
+    \label{Bridge}
+\end{figure}
+
 
 \section{Conclusion}
 
+In this bridge project, we investigated a large design space. First, we investigated several general bridge designs (design iterations), then exact geometries in our optimization steps, taking into account all modes of failure taught in the course thus far. \\
 
+Through a large amount of diverging and converging, napkin math, software modeling, and intuitive design, we settled for a final design which we believe represents a bridge theoretically capable of reaching our design goals. \\
+
+Construction was carried out with precision, and taking into account the strengths of each team member, such as to make the process efficient and safe. \\
+
+In conclusion, this report gives a general review of how we settled at the final design. \\
+
+
+\onecolumngrid
+\newpage
 \section{Bibliography}
 
-[1] C. P. Heins, “Box Girder Bridge Design; State of the Art,” Engineering Journal, vol. 15, no. 4, pp. 126–142, Dec. 1978, doi: https://doi.org/10.62913/engj.v15i4.322.
+\bibliography{Design Report}
 
-[2] Juan Camilo Molina-Villegas, J. Eliecer, and Giovanni Martínez Martínez, “Closed-form solution for non-uniform Euler–Bernoulli beams and frames,” Engineering structures/Engineering structures (Online), vol. 292, pp. 116381–116381, Oct. 2023, doi: https://doi.org/10.1016/j.engstruct.2023.116381.
+[1] C. P. Heins, “Box Girder Bridge Design; State of the Art,” Engineering Journal, vol. 15, no. 4, pp. 126–142, Dec. 1978, doi: https://doi.org/10.62913/engj.v15i4.322. \\
+
+[2] Juan Camilo Molina-Villegas, J. Eliecer, and Giovanni Martínez Martínez, “Closed-form solution for non-uniform Euler–Bernoulli beams and frames,” Engineering structures/Engineering structures (Online), vol. 292, pp. 116381–116381, Oct. 2023, doi: https://doi.org/10.1016/j.engstruct.2023.116381. \\
+
+[3] L. Manufacturing, “LePage Heavy Duty Contact Cement,” Lepage.ca, 2025. https://www.lepage.ca/en/products/central-pdp.html/lepage-heavy-duty-contact-cement/SAP_0201FSL01BBZ.html (accessed Nov. 22, 2025). \\
 
 
-\section{Appendix}
-
+\newpage
 \subsection{AI Statement}
 
-No form of AI was used in planning the lab, writing the lab, or writing the processing code.
+No form of AI was used in planning the lab, writing the lab, writing the processing code, or aiding construction.
 
-AI was used to spell-check the report after finishing with the prompt "Note any typing errors". 6 minor suggestions regarding spelling mistakes were accepted. I decided to use it because there is no spell checker available in my IDE for LaTeX.
+AI was used to spell-check the report after finishing with the prompt "Note any typing errors".
 
 \end{document}
