@@ -58,13 +58,40 @@ start from. Choosing between triangular, trapezoidal, and rectangular, we ultima
 Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between 
 trapezoidal and rectangular, noting that modelling is an important part of this project, we chose rectangular for the simplified geometry and load profiles.
 
-\subsection{Design iteration 1}
+\subsection{Design iteration \#1\ - HSS}
 
-As our first design iteration, we considered a HSS box girder. \\
+\textbf{Choose a 100mm x 100mm x 1.27mm HSS as our starting point. } \\
 
-Since the track width must be less or equal to 100mm, we allowed the square to be 100mm x 100mm.
+Starting the project, we considered a few concepts for the cross-section 
+of our girder. Triangular, rectangular, and trapezoidal were the three best choices for us. Choosing between triangular, trapezoidal, and rectangular, we ultimately decided on using a rectangular cross-section. \\
 
-\subsection{Design iteration 2 - Adding Diaphragms}
+Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between trapezoidal and rectangular, noting that modelling is an important part 
+of this project, we chose rectangular for the simplified geometry and load profiles. Since the track width must be less or equal to 100mm, we allowed the HSS to be 100mm x 100mm x 1.27mm. This is the most simple cross section, 
+thus a great starting point. \\
+
+% \begin{figure}[!htbp]
+% \includegraphics[width=1.5in]{images/image17.png}
+% \caption{image17}
+% \end{figure}
+
+% \begin{figure}[!htbp]
+% \includegraphics[width=1.5in]{images/image5.png}
+% \caption{image5}
+% \end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{0.45\linewidth}
+    \includegraphics[width=\linewidth]{images/image17.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \includegraphics[width=\linewidth]{images/image5.png}
+\end{minipage}
+\caption{Initial rectangular cross-section sketches and 3D visualization.}
+\end{figure}
+
+\subsection{Design iteration \#2\ - Removing Bottom}
 
 Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram. We also saw this as a 
 possible failure mode in papers [1]. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear 
