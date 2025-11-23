@@ -6,7 +6,7 @@ stresses = []
 h = 74
 b = 121
 
-N_values = range(1, 7)
+N_values = range(1, 5)
 M_values = range(0, 3)
 
 heatmap_data = np.zeros((len(N_values), len(M_values)))

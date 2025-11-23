@@ -6,7 +6,7 @@
 # supports at 0 and 1250
 # let x be the distance travelled by the front wheels of the train
 import matplotlib.pyplot as plt
-
+import numpy as np
 coefficients = [[0.69, 0], [0.69, 176], [0.5, 340], [0.5, 516], 
                 [0.55, 680], [0.55, 856]]
 
@@ -65,9 +65,11 @@ def get_max_M(P):
 
 # draw a diagram for visualization
 def get_diagram(M):
-    plt.plot([i for i in range(1251)], M)
+    plt.plot(range(1251), np.array(M),label="Single Layer Track")
+    plt.plot([i for i in range(1251)], (np.array(M)-1)%50000 - 50000,label="Non-Uniform Track") # plot layers
+    plt.legend()
     plt.grid(alpha=0.5)
-    plt.ylabel("Bending Moment ($Nm$)")
+    plt.ylabel("Maximal Bending Moment ($Nmm$)")
     plt.xlabel("Position (mm)")
     plt.tight_layout()
     plt.show()
