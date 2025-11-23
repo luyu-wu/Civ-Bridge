@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  22 NOV 2025 18:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  22 NOV 2025 19:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -480,16 +480,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--118
  []
 
 
-Underfull \hbox (badness 1681) in paragraph at lines 119--122
-\OT1/cmr/m/n/10 rect-an-gu-lar, not-ing that mod-el-ing is an im-por-tant
- []
-
-
-Underfull \hbox (badness 1412) in paragraph at lines 119--122
-\OT1/cmr/m/n/10 part of this project, we chose rect-an-gu-lar for the
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 119--122
 
  []
@@ -773,12 +763,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
 
-[7 <./images/image6.png> <./images/image8.png> <./images/image15.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 376--377
 
  []
 
-
+[7 <./images/image6.png> <./images/image8.png> <./images/image15.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
  []
@@ -813,15 +803,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 815F3FBE9ACE3D6193F89931F3CF23C2;3707.
  ) 
 Here is how much of TeX's memory you used:
- 13503 strings out of 473190
- 208836 string characters out of 5715799
+ 13504 strings out of 473190
+ 208846 string characters out of 5715799
  733096 words of memory out of 5000000
- 36496 multiletter control sequences out of 15000+600000
+ 36497 multiletter control sequences out of 15000+600000
  569153 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,8n,93p,1139b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (10 pages, 3280806 bytes).
+Output written on main.pdf (10 pages, 3280848 bytes).
 PDF statistics:
  275 PDF objects out of 1000 (max. 8388607)
  199 compressed objects within 2 object streams

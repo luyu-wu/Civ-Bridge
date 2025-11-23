@@ -117,7 +117,7 @@ Starting the project, we considered a few concepts for the cross-section
 of our girder. Triangular, rectangular, and trapezoidal were the three best choices for us. Choosing between triangular, trapezoidal, and rectangular, we ultimately decided on using a rectangular cross-section. \\
 
 Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between trapezoidal and rectangular, noting that modeling is an important part 
-of this project, we chose rectangular for the simplified geometry and load profiles. Since the track width must be less or equal to 100mm, we allowed the HSS to be 100mm x 100mm x 1.27mm. This is the most simple cross section, 
+of this project, we chose rectangular for the simplified geometry and load profiles. Since the track width must be at least 100 mm wide at any point, we allowed the HSS to be 100mm x 100mm x 1.27mm. This is the most simple cross section, 
 thus a great starting point. \\
 
 
@@ -139,9 +139,9 @@ thus a great starting point. \\
     \textbf{Remove the bottom layer, such that the cross section is in a $\Pi$ shape.}
 \end{center}
 
-We realized that since the upper half of the box girder is in compression while the bottom is in tension. Compression is a far less likely fail case, considering the materials properties of $\sigma_{tensile} = 30 \sigma_{compression}=6$). Thus, it seemed more worth it to place the bottom paneling to the top. Doing this, we get a $\Pi$ shape of the bridge. However, we will keep bottom panels near the supports, since a bottom layer is required to rest the bridge on the supports. This will not be accounted for in our calculations, since this layer only exists near the supports. \\
+We realized that since the upper half of the box girder is in compression while the bottom is in tension. Compression is a far less likely fail case, considering the materials properties of $\sigma_{tensile} = 30~MPa$ and $\sigma_{compression}=6~MPa$. Thus, it seemed more worth it to place the bottom paneling to the top. Doing this, we get a $\Pi$ shape of the bridge. However, we will keep bottom panels near the supports, since a bottom layer is required to rest the bridge on the supports. This will not be accounted for in our calculations, since this layer only exists near the supports. \\
 
-We also realized that removing the bottom shifts the centroid up. This has 2 effects. First, it decreases the distance from the centroid, through MY/I this decreases the stress. Second, it decreases the MOI as the distance of the deck is closer to the centroid.
+We also realized that removing the bottom shifts the centroid up. This has 2 effects. First, it decreases the distance from the centroid, through $\sigma = \dfrac{My}{I}$ this decreases the stress. Second, it decreases the MOI as the distance of the deck is closer to the centroid.
 
 \begin{figure}[htb] 
     \includegraphics[width=0.8\linewidth]{images/image4.png}
@@ -159,14 +159,14 @@ In Fig. \ref{fig:heatmap} we see that with 4 layers on top and no bottom gives s
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.6\linewidth]{images/image11.png}
-    \caption{Cross-section sketch for design iteration \#3}.
+    \caption{Cross-section sketch for design iteration \#3}
     \label{fig:cross-section sketch for iteration 3}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\linewidth]{images/image18.png}
-    \caption{Flange side view sketch for design iteration \#3}.
+    \caption{Flange side view sketch for design iteration \#3}
     \label{fig:Flange side view sketch for iteration 3}
 \end{figure}
 
@@ -194,7 +194,7 @@ For now, we will assume that we keep 2 layers with full length, and have shorter
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.6\linewidth]{images/image19.png}
-    \caption{Cross-section sketch for design iteration \#4}.
+    \caption{Cross-section sketch for design iteration \#4}
     \label{fig:cross-section sketch for iteration 4}
 \end{figure}
 
@@ -228,7 +228,7 @@ Intuitively, we realized the box girder would be prone to distortional shear in 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\linewidth]{images/image3.png}
-    \caption{Distortional Shear Failure Mode}.
+    \caption{Distortional Shear Failure Mode}
     \label{fig:Distortial Shear Failure Mode}
 \end{figure}
 
@@ -237,14 +237,14 @@ Furthermore, verifications are done on the design for FOS against shear. Figure 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\linewidth]{images/image16.png}
-    \caption{The python script for computing the FOS against shear}.
+    \caption{The python script for computing the FOS against shear}
     \label{fig:python script for FOS}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.6\linewidth]{images/image1.png}
-    \caption{The algebra done by hand to derive certain lines of the code}.
+    \caption{The algebra done by hand to derive certain lines of the code}
     \label{fig:handwirte for code}
 \end{figure}
 
@@ -259,14 +259,14 @@ Figure [design geometry code] shows the python script for computing the required
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\linewidth]{images/image10.png}
-    \caption{Python script for computing the required length of each layer. For more details on each helper function, see source code.}.
+    \caption{Python script for computing the required length of each layer. For more details on each helper function, see source code.}
     \label{fig:python script for each layer}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\linewidth]{images/image22.png}
-    \caption{Summary of code output for required layer lengths. The length of each layer will be used for design iteration \#6’s dimensions. }.
+    \caption{Summary of code output for required layer lengths. The length of each layer will be used for design iteration \#6’s dimensions. }
     \label{fig:table for code output}
 \end{figure}
 
@@ -279,14 +279,14 @@ Figure [design geometry code] shows the python script for computing the required
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{images/image20.png}
-    \caption{The diagram for the finalized cross-section with dimensions.}.
+    \caption{The diagram for the finalized cross-section with dimensions.}
     \label{fig:Final diagram - cross-section}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image21.png}
-    \caption{The diagram for the top layers with dimensions.}.
+    \caption{The diagram for the top layers with dimensions.}
     \label{fig:Final diagram - top layer}
 \end{figure}
 
@@ -295,7 +295,7 @@ In our previous calculations, we forgot to take into account failure by tension.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.2\linewidth]{images/image12.png}
-    \caption{Layer code output}.
+    \caption{Layer code output}
     \label{fig:layer code output}
 \end{figure}
 
@@ -305,7 +305,7 @@ We then estimated this design’s failure load using a python script. Figure [al
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image2.png}
-    \caption{ A graph of all FOS under the final design’s failure load, with 0 and 1200 at the two supports. For visual purposes, the FOS plotted is limited to at most 10. }.
+    \caption{ A graph of all FOS under the final design’s failure load, with 0 and 1200 at the two supports. For visual purposes, the FOS plotted is limited to at most 10. }
     \label{graph for all FOS}
 \end{figure}
 
@@ -314,7 +314,7 @@ We then planned out how to cut the matboard. After allocating area to the webs, 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image7.png}
-    \caption{Final diaphragms}.
+    \caption{Final diaphragms}
     \label{Final diaphragms}
 \end{figure}
 
@@ -327,7 +327,7 @@ On November 19th, we cut the matboard in the Myhal Centre Fabrication Facility (
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image9.png}
-    \caption{Us working on the matboard tracing and cutting. To the left, you can see the sketched lines and floorplan, while to the right you can see the precision knife cutting process.}.
+    \caption{Us working on the matboard tracing and cutting. To the left, you can see the sketched lines and floorplan, while to the right you can see the precision knife cutting process.}
     \label{cutting1}
 \end{figure}
 
@@ -354,7 +354,7 @@ The second issue we observed was the lifting of the soffit (bottom deck). This i
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image8.png}
-    \caption{ The applied weight test is shown in this picture. In the highlighted part, you may observe the second issue (soffit uplift from web). This was addressed as mentioned in the text.}.
+    \caption{ The applied weight test is shown in this picture. In the highlighted part, you may observe the second issue (soffit uplift from web). This was addressed as mentioned in the text.}
     \label{Testing}
 \end{figure}
 
