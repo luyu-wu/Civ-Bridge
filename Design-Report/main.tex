@@ -56,6 +56,7 @@ $\sigma_{buckle}$ - Critical Buckling Pressure
 \textbf{Equations}
 
 \hspace{-20pt}
+\vspace{-5pt}
 \begin{minipage}{0.48\textwidth}
     \begin{equation}
         \sigma = \frac{4\pi^2E}{12(1-\mu^2)}\left(\frac{t}{b}\right)^2
@@ -66,10 +67,10 @@ $\sigma_{buckle}$ - Critical Buckling Pressure
 \hfill 
 \begin{minipage}{0.48\textwidth}
     \begin{equation}
-        \sigma = \frac{0.425\pi^2E}{12(1-\mu^2)}\left(\frac{t}{b}\right)^2
-        \label{Buckling of Tips in Compression}
+        \sigma = \frac{My}{I}
+        \label{Navier's Equation}
     \end{equation}
-    \centering Buckling of Tips in Compression
+    \centering Navier's Equation
 \end{minipage}
 
 \hspace{-20pt}
@@ -141,7 +142,7 @@ thus a great starting point. \\
 
 We realized that since the upper half of the box girder is in compression while the bottom is in tension. Compression is a far less likely fail case, considering the materials properties of $\sigma_{tensile} = 30~MPa$ and $\sigma_{compression}=6~MPa$. Thus, it seemed more worth it to place the bottom paneling to the top. Doing this, we get a $\Pi$ shape of the bridge. However, we will keep bottom panels near the supports, since a bottom layer is required to rest the bridge on the supports. This will not be accounted for in our calculations, since this layer only exists near the supports. \\
 
-We also realized that removing the bottom shifts the centroid up. This has 2 effects. First, it decreases the distance from the centroid, through $\sigma = \dfrac{My}{I}$ this decreases the stress. Second, it decreases the MOI as the distance of the deck is closer to the centroid.
+We also realized that removing the bottom shifts the centroid up. This has 2 effects. First, it decreases the distance from the centroid, through Equation \ref{Navier's Equation} this decreases the stress. Second, it decreases the MOI as the distance of the deck is closer to the centroid.
 
 \begin{figure}[htb] 
     \includegraphics[width=0.8\linewidth]{images/image4.png}
@@ -200,7 +201,7 @@ For now, we will assume that we keep 2 layers with full length, and have shorter
 
 To optimize the height and width of the beam, we investigate the most efficient use of the parameters through the given equations. \\
 
-In Equation [navier], $FOS \propto \sigma_{max}^{-1} \propto I \propto h^3$. 
+In Equation \ref{Navier's Equation}, $FOS \propto \sigma_{max}^{-1} \propto I \propto h^3$. 
 At the same time, $FOS \propto \sigma_{max}^{-1} \propto y^{-1} ~ h^{-1}$. 
 This means the FOS scales approximately quadratically with $h$ in terms of maximum stress. \\
 
@@ -208,12 +209,30 @@ However, in Equation \ref{Flexural Web Buckling}, $FOS \propto \sigma_{allowable
 
 However, this is only the case when $\sigma_{allowable} = \sigma_{buckle}$, and $\sigma_{allowable} = min(\sigma_{yield}, \sigma_{buckle}) = min(6MPa, \sigma_{buckle})$. This means when $\sigma_{buckle} > 6MPa$, FOS still scales approximately quadratically with h. This means we want to solve for h such that $\sigma_{buckle} = 6MPa$, so that it buckles and yields simultaneously, thus can save the most material. \\
 
-Similarly, $FOS \propto \sigma_{max}^{-1} \propto I \propto b$, from Equation [navier], and $FOS \propto \sigma_{allowable} \propto b^{-2}$ from Equation [flange buckle]. This means the most efficient $b$ occurs when $\sigma_{buckle} = 6MPa$ for the flange. \\
+Similarly, $FOS \propto \sigma_{max}^{-1} \propto I \propto b$, from Equation \ref{Navier's Equation}, and $FOS \propto \sigma_{allowable} \propto b^{-2}$ from Equation \ref{Buckling of Compressive Flange}. This means the most efficient $b$ occurs when $\sigma_{buckle} = 6MPa$ for the flange. \\
 
 Solving for $b$ and $h$ below, we get $h_{web} = 74\,\text{mm, } b_{flange} = 121\,\text{mm}$. Note that these values differ from the actual height and width of the bridge. For example, $h_{web} = h_{bridge} - 1.27(n+1)$, where n is the total number of top + bottom layers. Due to project constraints, the overall height of the bridge must be in multiples of 20mm, thus we set h = 80mm. Since we cannot cut the material accurately within 1mm, we set b = 120mm. 
-[insert equations for b and h calculations] \\
+\begin{align*}
+\sigma =& \frac{6\pi ^2E}{12(1-\mu^2)}\left(\frac{t}{h}\right)^2\\
+6\text{ M{Pa}} =& 20562\text{ MPa}\times \left(\frac{1.27\text{ mm}}{h}\right)^2\\
+h =& 74.3\text{ mm}
+\end{align*}
+\begin{align*}
+\sigma =& \frac{4\pi ^2E}{12(1-\mu^2)}\left(\frac{t}{b}\right)^2\\
+6\text{ M{Pa}} =& 13708\text{ MPa}\times \left(\frac{2\times1.27\text{ mm}}{b}\right)^2\\
+b =& 121.0\text{ mm}
+\end{align*}
 
-An additional benefit for this low value of height is that shear buckling is unlikely to occur: [insert equations for proof]. \\
+
+An additional benefit for this low value of height is that shear buckling is unlikely to occur, proven by the equations below:
+\begin{align*}
+\tau &= \frac{5\pi^2E}{12(1-\mu^2)}\left[ \left(\frac{t}{h}\right)^2+ \left(\frac{t}{a}\right)^2 \right]\\
+&\ge \frac{5\pi^2E}{12(1-\mu^2)} \left(\frac{t}{h}\right)^2\\
+&\ge \frac{5}{6}\frac{6\pi^2E}{12(1-\mu^2)} \left(\frac{t}{h}\right)^2\\
+&\ge \frac{5}{6}(6\text{ MPa}), \because\text{we set }\sigma_{buckle} \ge \sigma_{compression}\\
+&> 4\text{ MPa}\\
+&> \tau_{matboard}
+\end{align*}
 
 We also decided to move the webs closer together such that they are 100mm apart (which is the minimum distance as required by the project constraints), without changing the top layer’s width. This does not change $I$, but increases the FOS against flange buckling. 
 
@@ -223,7 +242,7 @@ We also decided to move the webs closer together such that they are 100mm apart 
     \textbf{We will add at least 6 diaphragms, with 2 near each support and 2 in the middle.}
 \end{center}
 
-Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram. We also saw this as a possible failure mode in papers [1]. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear buckling, which also benefits from diaphragms. We also recognize that shear force is greatest at the supports, thus we dedicate 2 diaphragms near each support, much like Design 0 [cite].\\
+Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram. We also saw this as a possible failure mode in papers [1]. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear buckling, which also benefits from diaphragms. We also recognize that shear force is greatest at the supports, thus we dedicate 2 diaphragms near each support, much like Design 0 \cite{project_handout}.\\
 
 \begin{figure}[htb]
     \centering
@@ -231,8 +250,6 @@ Intuitively, we realized the box girder would be prone to distortional shear in 
     \caption{Distortional Shear Failure Mode}
     \label{fig:Distortial Shear Failure Mode}
 \end{figure}
-
-Furthermore, verifications are done on the design for FOS against shear. Figure [shear code] shows the Python script for computing the FOS against shear and Figure [shear hand calc] shows the algebra done by hand to derive certain lines of the code. The failure mode for shear is computed to be matboard material failure at the centroidal axis upon comparison with shear failure at glue. Thus, no extra modifications are required to prevent the design from failing from shear. \\ \\ \\ \\
 
 \begin{figure}[htb]
     \centering
@@ -243,18 +260,18 @@ Furthermore, verifications are done on the design for FOS against shear. Figure 
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.6\linewidth]{images/image1.png}
+    \includegraphics[width=0.5\linewidth]{images/image1.png}
     \caption{The algebra done by hand to derive certain lines of the code}
     \label{fig:handwirte for code}
 \end{figure}
 
+Furthermore, verifications are done on the design for FOS against shear. Figure \ref{fig:python script for FOS} shows the Python script for computing the FOS against shear and Figure \ref{fig:handwirte for code} shows the algebra done by hand to derive certain lines of the code. The failure mode for shear is computed to be matboard material failure at the centroidal axis upon comparison with shear failure at glue. Thus, no extra modifications are required to prevent the design from failing from shear. \\ \\ 
+
 
 \subsection{Design Iteration \#6\ - Finalizing All Dimensions}
 \begin{center}
-    \textbf{Calculated required layer lengths. Exact dimensions see Table [design geometry output].}
+    \textbf{Calculated required layer lengths. Exact dimensions see Table \ref{fig:table for code output}.}
 \end{center}
-
-Figure [design geometry code] shows the python script for computing the required length of each layer under a 1kN load, given cross-sectional geometry of the design and its BME. Table [layer lengths] summarizes the output. \\ \\ \\
 
 \begin{figure}[htb]
     \centering
@@ -270,10 +287,11 @@ Figure [design geometry code] shows the python script for computing the required
     \label{fig:table for code output}
 \end{figure}
 
+Figure \ref{fig:python script for each layer} shows the python script for computing the required length of each layer under a 1kN load, given cross-sectional geometry of the design and its BME. Table \ref{fig:table for code output} summarizes the output. \\ \\ \\
 
 \subsection{Design Iteration \#7\ - Final Design - Adding the Bottom Back}
 \begin{center}
-    \textbf{Added the bottom layer of the bridge back and recalculated required layer lengths.}
+    \textbf{Re-added the bottom layer and recalculated required layer lengths (Figure \ref{fig:Final diagram - cross-section}, \ref{fig:Final diagram - top layer}).}
 \end{center}
 
 \begin{figure}[htb]
@@ -290,17 +308,20 @@ Figure [design geometry code] shows the python script for computing the required
     \label{fig:Final diagram - top layer}
 \end{figure}
 
-In our previous calculations, we forgot to take into account failure by tension. Due to this, we added back the bottom layer. We ran the code in Figure [design geometry code] again, with modified cross-sectional properties. Figure [layers code output] shows the output for the range unable to support for each number of extra layers under a 1kN load. \\
+In our previous calculations, we forgot to take into account failure by tension. Due to this, we added back the bottom layer. We ran the code in Figure \ref{fig:python script for each layer} again, with modified cross-sectional properties. Figure \ref{fig:layer code output} shows the output for the range unable to support for each number of extra layers under a 1kN load. 
 
+\vspace{-5pt}
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.2\linewidth]{images/image12.png}
+    \vspace{-5pt}
     \caption{Layer code output}
     \label{fig:layer code output}
 \end{figure}
 
+\vspace{-10pt}
 Shear calculations are also redone for the bottom glue connection. It becomes the new failure mode, which requires glue tabs to be installed at the bottom layer connections. 
-We then estimated this design’s failure load using a python script. Figure [all FOS] shows the graph of all of its FOS under failure load. The failure load is 1096N. The location with the least FOS is at x = 379 mm, with FOS = 1.009. \\
+We then estimated this design’s failure load using a python script. Figure \ref{graph for all FOS} shows the graph of all of its FOS under failure load. The failure load is 1096N. The location with the least FOS is at x = 379 mm, with FOS = 1.009. \\
 
 \begin{figure}[htb]
     \centering
@@ -309,7 +330,7 @@ We then estimated this design’s failure load using a python script. Figure [al
     \label{graph for all FOS}
 \end{figure}
 
-We then planned out how to cut the matboard. After allocating area to the webs, bottom layer and the full length top layer with a 5mm tolerance for cutting, we decided to leave a greater length for each layer. Final product see Figure [final layers]. We also had 8 leftover diaphragms, which allows us to allocate them according to previously planned in design iteration \#5. Figure [final diaphragms] shows the diaphragms locations along the length of the bridge.
+We then planned out how to cut the matboard. After allocating area to the webs, bottom layer and the full length top layer with a 5mm tolerance for cutting, we decided to leave a greater length for each layer. Final product see Figure \ref{fig:Final diagram - top layer}. We also had 8 leftover diaphragms, which allows us to allocate them according to previously planned in design iteration \#5. Figure \ref{Final diaphragms} shows the diaphragms locations along the length of the bridge.
 
 \begin{figure}[htb]
     \centering
@@ -334,7 +355,7 @@ On November 19th, we cut the matboard in the Myhal Centre Fabrication Facility (
 \subsection{Matboard Gluing}
 The day following matboard cutting, we moved onto putting the bridge together. We chose the CampusOne Arts \& Crafts room (with permission from admin), as it had strong air ventilation. To ensure non-hazardous conditions and possible injury, all proper safety procedures were followed [3]. Unfortunately, due to one team member's medical conditions, we had to complete the glue with two members. \\ 
 
-The bridge was glued in order to ensure each glue joint could be adequately pressured while being set. This meant for instance, placing the diaphragms before the soffit but after the webs. Recommended contact cement was strictly followed, waiting a full 15 minutes for it to dry before applying contact [3]. Pressure was applied through the use of heavy books, a heavy stand, and biological hands (which proved to be very useful). A picture of the pipelined process can be seen in Figure [cutting].
+The bridge was glued in order to ensure each glue joint could be adequately pressured while being set. This meant for instance, placing the diaphragms before the soffit but after the webs. Recommended contact cement was strictly followed, waiting a full 15 minutes for it to dry before applying contact [3]. Pressure was applied through the use of heavy books, a heavy stand, and biological hands (which proved to be very useful). A picture of the pipelined process can be seen in Figure \ref{cutting1}.
 
 \begin{figure}[htb]
     \centering
