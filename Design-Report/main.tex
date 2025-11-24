@@ -112,7 +112,7 @@ Firstly, triangular cross-sections proved hard to find in literature (and we tru
 \subsection{Design Iteration \#1\ - HSS}
 
 \begin{center}
-    \textbf{Choose a 100mm x 100mm x 1.27mm HSS as our starting point. }
+    \textbf{Choose a 100 mm x 100 mm x 1.27 mm HSS as our starting point. }
 \end{center}
 
 
@@ -120,7 +120,7 @@ Starting the project, we considered a few concepts for the cross-section
 of our girder. Triangular, rectangular, and trapezoidal were the three best choices for us. Choosing between triangular, trapezoidal, and rectangular, we ultimately decided on using a rectangular cross-section. \\
 
 Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between trapezoidal and rectangular, noting that modeling is an important part
-of this project, we chose rectangular for the simplified geometry and load profiles. Since the track width must be at least 100 mm wide at any point, we allowed the HSS to be 100mm x 100mm x 1.27mm. This is the most simple cross section,
+of this project, we chose rectangular for the simplified geometry and load profiles. Since the track width must be at least 100 mm wide at any point, we allowed the HSS to be 100 mm x 100 mm x 1.27 mm. This is the most simple cross section,
 thus a great starting point. \\
 
 
@@ -191,12 +191,12 @@ For now, we will assume that we keep 2 layers with full length, and have shorter
 \subsection{Design Iteration \#4\ - Optimizing Height and Width}
 
 \begin{center}
-    \textbf{Set height to 80mm and width to 120mm, and move webs closer together.}
+    \textbf{Set height to 80 mm and width to 120 mm, and move webs closer together.}
 \end{center}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.6\linewidth]{images/image19.png}
+    \includegraphics[width=0.7\linewidth]{images/image19.png}
     \caption{Cross-section sketch for design iteration \#4}
     \label{fig:cross-section sketch for iteration 4}
 \end{figure}
@@ -213,7 +213,7 @@ However, this is only the case when $\sigma_{allowable} = \sigma_{buckle}$, and 
 
 Similarly, $FOS \propto \sigma_{max}^{-1} \propto I \propto b$, from Equation \ref{Navier's Equation}, and $FOS \propto \sigma_{allowable} \propto b^{-2}$ from Equation \ref{Buckling of Compressive Flange}. This means the most efficient $b$ occurs when $\sigma_{buckle} = 6MPa$ for the flange. \\
 
-Solving for $b$ and $h$ below, we get $h_{web} = 74\,\text{mm, } b_{flange} = 121\,\text{mm}$. Note that these values differ from the actual height and width of the bridge. For example, $h_{web} = h_{bridge} - 1.27(n+1)$, where n is the total number of top + bottom layers. Due to project constraints, the overall height of the bridge must be in multiples of 20mm, thus we set h = 80mm. Since we cannot cut the material accurately within 1mm, we set b = 120mm.
+Solving for $b$ and $h$ below, we get $h_{web} = 74\,\text{ mm, } b_{flange} = 121\,\text{ mm}$. Note that these values differ from the actual height and width of the bridge. For example, $h_{web} = h_{bridge} - 1.27(n+1)$, where n is the total number of top + bottom layers. Due to project constraints, the overall height of the bridge must be in multiples of 20 mm, thus we set h = 80 mm. Since we cannot cut the material accurately within 1 mm, we set b = 120 mm.
 \begin{align*}
 \sigma =& \frac{6\pi ^2E}{12(1-\mu^2)}\left(\frac{t}{h}\right)^2\\
 6\text{ M{Pa}} =& 20562\text{ MPa}\times \left(\frac{1.27\text{ mm}}{h}\right)^2\\
@@ -236,7 +236,7 @@ An additional benefit for this low value of height is that shear buckling is unl
 &> \tau_{matboard}
 \end{align*}
 
-We also decided to move the webs closer together such that they are 100mm apart (which is the minimum distance as required by the project constraints), without changing the top layer’s width. This does not change $I$, but increases the FOS against flange buckling.
+We also decided to move the webs closer together such that they are 100 mm apart (which is the minimum distance as required by the project constraints), without changing the top layer’s width. This does not change $I$, but increases the FOS against flange buckling.
 
 \subsection{Design Iteration \#5\ - Axial Shear Considerations}
 
@@ -293,7 +293,7 @@ Figure \ref{fig:python script for each layer} shows the python script for comput
 
 \subsection{Design Iteration \#7\ - Final Design - Adding the Bottom Back}
 \begin{center}
-    \textbf{Re-added the bottom layer and recalculated required layer lengths (Figure \ref{fig:Final diagram - cross-section}, \ref{fig:Final diagram - top layer}).}
+    \textbf{Re-added the bottom layer and recalculated required layer lengths (Figure \ref{fig:Final diagram - cross-section} and \ref{fig:Final diagram - top layer}).}
 \end{center}
 
 \begin{figure}[htb]
@@ -326,13 +326,13 @@ Shear calculations are also redone for the bottom glue connection. It becomes th
 We then estimated this design’s failure load using a python script. Figure \ref{graph for all FOS} shows the graph of all of its FOS under failure load. The failure load is 1096N. The location with the least FOS is at x = 379 mm, with FOS = 1.009. \\
 
 
-We then planned out how to cut the matboard. After allocating area to the webs, bottom layer and the full length top layer with a 5mm tolerance for cutting, we decided to leave a greater length for each layer. Final product see Figure \ref{fig:Final diagram - top layer}. We also had 8 leftover diaphragms, which allows us to allocate them according to previously planned in design iteration \#5. Figure \ref{Final diaphragms} shows the diaphragms locations along the length of the bridge.
+We then planned out how to cut the matboard. After allocating area to the webs, bottom layer and the full length top layer with a 5 mm tolerance for cutting, we decided to leave a greater length for each layer. Final product see Figure \ref{fig:Final diagram - top layer}. We also had 8 leftover diaphragms, which allows us to allocate them according to previously planned in design iteration \#5. Figure \ref{Final diaphragms} shows the diaphragms locations along the length of the bridge.
 
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image2.png}
-    \caption{ A graph of all FOS under the final design’s failure load, with 0 and 1200 at the two supports. For visual purposes, the FOS plotted is limited to at most 10. }
+    \caption{ A graph of all FOS under the final design’s failure load, with 0 mm and 1200 mm at the two supports. For visual purposes, the FOS plotted is limited to at most 10. }
     \label{graph for all FOS}
 \end{figure}
 
@@ -349,7 +349,7 @@ We then planned out how to cut the matboard. After allocating area to the webs, 
 \clearpage
 
 \section{Bridge Construction}
-Construction was started on November 19th, 5 days before the bridge testing so as to provide adequate time for the contact cement to dry. The construction was finished in two parts over separate days (Nov 19-20th).
+Construction was started on November 19th, 5 days before the bridge testing so as to provide adequate time for the contact cement to dry. The construction was finished in two parts over separate days (Nov 19 - 20th).
 
 \subsection{Matboard Cutting}
 On November 19th, we cut the matboard in the Myhal Centre Fabrication Facility (MYFab) with permission from the supervisors. Firstly, we measured and marked using tape measure and rulers according to our prepared matboard floorplan. To avoid errors, each person’s lines were double checked by another and redrawn. After this, precision knives were used to cut along the lines. In total, we were able to finish in roughly 3 hours.
@@ -387,7 +387,7 @@ After finishing the limited basic construction (multi-layered track, web, diaphr
 
 The first issue was the multi-piece lengths (as the matboard cannot cover the full span). This created minor web buckling even under small loads (estimated as 20 kg). To address this, we grafted length pieces together using patches. This should have no effect on our calculations, as they assume a discrete length piece. \\
 
-The second issue we observed was the lifting of the soffit (bottom deck). This is because of the height mismatch between the diaphragms and the web (estimated to be around 1mm), where the soffit does not attach properly in certain areas near the diaphragms. This was addressed by adding glue tabs to hold the web to the soffit. This should have minimal effect on our calculations, as they assume this connection exists. \\
+The second issue we observed was the lifting of the soffit (bottom deck). This is because of the height mismatch between the diaphragms and the web (estimated to be around 1 mm), where the soffit does not attach properly in certain areas near the diaphragms. This was addressed by adding glue tabs to hold the web to the soffit. This should have minimal effect on our calculations, as they assume this connection exists. \\
 
 
 
