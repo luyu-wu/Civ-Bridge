@@ -30,7 +30,7 @@
 \title{\Large{Box Girder Bridge Design Report} }
 \author{Alan W., Luyu VK., Henry K.}
 
-\date{November 7, 2025 - CIV102 Bridge Project - TA: Christian Pavaldis}
+\date{November 7, 2025 - CIV102 Bridge Project - TA: Christian Pavlidis}
 
 \maketitle
 
@@ -94,20 +94,22 @@ $\sigma_{buckle}$ - Critical Buckling Pressure
 \twocolumngrid
 
 \section{Introduction}
-This project is the CIV102  Bridge Design Project, where teams are working to design and construct a small bridge that is capable of spanning 1,200 mm using only one sheet of matboard and two tubes of contact cement. The design process relies on concepts like beam principle, thin-plate buckling principle, and the material properties. By iteratively analyzing multiple designs, the team aims to develop a bridge that is both structurally efficient and able to safely carry the moving train load in the testing.
+This project is the CIV102  Bridge Design Project, where teams work to design and construct a small bridge that is capable of spanning 1,200 mm using only one sheet of matboard and two tubes of contact cement. The design process relies on concepts like beam principle, thin-plate buckling principle, and the material properties. By iteratively analyzing multiple designs, the team aims to develop a bridge that is both structurally efficient and able to safely carry the moving train load in the testing.
 
 The project's objective is to understand how failure mechanisms constrain the load of thin-plate structures. The tensile strength (30 MPa), compressive strength (6 MPa), and shear strength (4 MPa) of matboard impose clear performance limitations, and compression and buckling are important factors in the design process.
 
-During each design iteration, the team diverged into the design space to consider better possible solutions. After converging, we investigated optimizing web height, flange width, diaphragm spacing, and splice reinforcement to improve stiffness, reduce applied stresses, and delay buckling while staying within the material and constructability constraints. Shear force diagrams (SFDs), bending moment diagrams (BMDs), and their respective envelopes (BME, SFE) were computed for various train positions to predict applied stresses along the span. These stresses were then compared with material and buckling capacities to determine the factor of safety for each failure situation. This report provides an overview of the design process during building a bridge, and the engineering skills with CIV102 concept was collaborative to build a safe and effective bridge.
+Starting from a HSS beam, our team diverged into the design space to consider better possible solutions during each iteration. For instance, different cross-sections were considered for better characteristics, diaphragms were added to control axial buckling, and the track was layered to provide more uniform moment. Shear force diagrams (SFDs), bending moment diagrams (BMDs), and their respective envelopes (BME, SFE) were computed for various train positions to predict applied stresses along the span. These stresses were then compared with material and buckling capacities to determine the factor of safety for each failure situation. After this, we optimimzed parameters such as web height, flange width, and track-depth to increase FOS across the span using provided course equations as a guide.
 
-\section{Design iteration}
+This report provides an overview of our team's design process throughout the project, from brainstorming to the final construction.
+
+
+\section{Design Iterations}
 Initially, we considered a few options. In our first concept diverging stage, we thought of different cross-sections that may be available to us to
 start from. Choosing between triangular, trapezoidal, and rectangular, we ultimately decided on using a rectangular cross-section. \\
 
-Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between
-trapezoidal and rectangular, noting that modelling is an important part of this project, we chose rectangular for the simplified geometry and load profiles.
+Firstly, triangular cross-sections proved hard to find in literature (and we trusted it was likely for good reason). Secondly, choosing between trapezoidal and rectangular, noting that modelling is an important part of this project, we chose rectangular for the simplified geometry and load profiles.
 
-\subsection{Design iteration \#1\ - HSS}
+\subsection{Design Iteration \#1\ - HSS}
 
 \begin{center}
     \textbf{Choose a 100mm x 100mm x 1.27mm HSS as our starting point. }
@@ -242,7 +244,7 @@ We also decided to move the webs closer together such that they are 100mm apart 
     \textbf{We will add at least 6 diaphragms, with 2 near each support and 2 in the middle.}
 \end{center}
 
-Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram. We also saw this as a possible failure mode in papers \cite{heins_1978_box}. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear buckling, which also benefits from diaphragms. We also recognize that shear force is greatest at the supports, thus we dedicate 2 diaphragms near each support, much like Design 0 \cite{project_handout}.\\
+Intuitively, we realized the box girder would be prone to distortional shear in a fashion that would collapse it to a parallelogram (Fig. \ref{fig:Distortial Shear Failure Mode}). We also saw this as a possible failure mode in papers \cite{heins_1978_box}. Realizing diaphragms should prevent this issue, we added them into the design. Note that this is separate from shear buckling, which also benefits from diaphragms. We also recognize that shear force is greatest at the supports, thus we dedicate 2 diaphragms near each support, much like Design 0 \cite{project_handout}.\\
 
 \begin{figure}[htb]
     \centering
@@ -323,6 +325,10 @@ In our previous calculations, we forgot to take into account failure by tension.
 Shear calculations are also redone for the bottom glue connection. It becomes the new failure mode, which requires glue tabs to be installed at the bottom layer connections.
 We then estimated this design’s failure load using a python script. Figure \ref{graph for all FOS} shows the graph of all of its FOS under failure load. The failure load is 1096N. The location with the least FOS is at x = 379 mm, with FOS = 1.009. \\
 
+
+We then planned out how to cut the matboard. After allocating area to the webs, bottom layer and the full length top layer with a 5mm tolerance for cutting, we decided to leave a greater length for each layer. Final product see Figure \ref{fig:Final diagram - top layer}. We also had 8 leftover diaphragms, which allows us to allocate them according to previously planned in design iteration \#5. Figure \ref{Final diaphragms} shows the diaphragms locations along the length of the bridge.
+
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image2.png}
@@ -330,7 +336,7 @@ We then estimated this design’s failure load using a python script. Figure \re
     \label{graph for all FOS}
 \end{figure}
 
-We then planned out how to cut the matboard. After allocating area to the webs, bottom layer and the full length top layer with a 5mm tolerance for cutting, we decided to leave a greater length for each layer. Final product see Figure \ref{fig:Final diagram - top layer}. We also had 8 leftover diaphragms, which allows us to allocate them according to previously planned in design iteration \#5. Figure \ref{Final diaphragms} shows the diaphragms locations along the length of the bridge.
+\vspace{-100pt}
 
 \begin{figure}[htb]
     \centering
@@ -338,6 +344,9 @@ We then planned out how to cut the matboard. After allocating area to the webs, 
     \caption{Final diaphragms}
     \label{Final diaphragms}
 \end{figure}
+
+
+\clearpage
 
 \section{Bridge Construction}
 Construction was started on November 19th, 5 days before the bridge testing so as to provide adequate time for the contact cement to dry. The construction was finished in two parts over separate days (Nov 19-20th).
@@ -368,10 +377,6 @@ The bridge was glued in order to ensure each glue joint could be adequately pres
 
 After finishing the limited basic construction (multi-layered track, web, diaphragms, soffit), we tested the bridge using light loads with the bridge suspended over 1 m. This revealed some weak areas in the bridge, which we patched using the remaining matboard and glue which we preserved for this case. \\
 
-The first issue was the multi-piece lengths (as the matboard cannot cover the full span). This created minor web buckling even under small loads (estimated as 20 kg). To address this, we grafted length pieces together using patches. This should have no effect on our calculations, as they assume a discrete length piece. \\
-
-The second issue we observed was the lifting of the soffit (bottom deck). This is because of the height mismatch between the diaphragms and the web (estimated to be around 1mm), where the soffit does not attach properly in certain areas near the diaphragms. This was addressed by adding glue tabs to hold the web to the soffit. This should have minimal effect on our calculations, as they assume this connection exists. \\
-
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image8.png}
@@ -380,16 +385,22 @@ The second issue we observed was the lifting of the soffit (bottom deck). This i
 \end{figure}
 
 
+The first issue was the multi-piece lengths (as the matboard cannot cover the full span). This created minor web buckling even under small loads (estimated as 20 kg). To address this, we grafted length pieces together using patches. This should have no effect on our calculations, as they assume a discrete length piece. \\
+
+The second issue we observed was the lifting of the soffit (bottom deck). This is because of the height mismatch between the diaphragms and the web (estimated to be around 1mm), where the soffit does not attach properly in certain areas near the diaphragms. This was addressed by adding glue tabs to hold the web to the soffit. This should have minimal effect on our calculations, as they assume this connection exists. \\
+
+
+
 After addressing these minor issues, our bridge was finished construction on 11:00 PM November 20th, 2025. \\
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{images/image15.png}
-    \caption{Our Bridge}
+    \caption{Our Bridge.}
     \label{Bridge}
 \end{figure}
 
-
+\vspace{200pt}
 \section{Conclusion}
 
 In this bridge project, we investigated a large design space. First, we investigated several general bridge designs (design iterations), then exact geometries in our optimization steps, taking into account all modes of failure taught in the course thus far. \\
@@ -398,7 +409,9 @@ Through a large amount of diverging and converging, napkin math, software modeli
 
 Construction was carried out with precision, and taking into account the strengths of each team member, such as to make the process efficient and safe. \\
 
-In conclusion, this report gives a general review of how we settled at the final design. \\
+In summary, our bridge design went through numerous design phases, stringent construction, and ultimately, should theoretically be able to withhold the 1 KN load. \\
+
+\vspace{340pt}
 
 
 \onecolumngrid

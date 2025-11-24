@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 1763934474.58054 "main.aux" "main.bbl" "main" 1763934476.81743 0
-  "./mainNotes.bib" 1763934475.3113 0 d41d8cd98f00b204e9800998ecf8427e ""
+["bibtex main"] 1763936686.47183 "main.aux" "main.bbl" "main" 1763936796.88255 0
+  "./mainNotes.bib" 1763936794.9122 0 d41d8cd98f00b204e9800998ecf8427e ""
   "./refs.bib" 1763934468.87029 1203 6af8fd52001bc445c4421e8077541f7b ""
   "/usr/share/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1755987285 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1763934476.5653 10108 b4ac979378411dabafbdc3e9f2466812 "pdflatex"
+  "main.aux" 1763936796.4682 10110 bb9470a1e02c9aaea3fa846019a5d1a1 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1763934474.68121 "/home/chrysanthemum/Code/Civ-Bridge/Design-Report/main.tex" "main.pdf" "main" 1763934476.81771 0
-  "/home/chrysanthemum/Code/Civ-Bridge/Design-Report/main.tex" 1763934470.42729 24208 a5a166f798a6b4dd9c24d00fa9b71f40 ""
+["pdflatex"] 1763936794.29169 "/home/chrysanthemum/Code/Civ-Bridge/Design-Report/main.tex" "main.pdf" "main" 1763936796.88302 0
+  "/home/chrysanthemum/Code/Civ-Bridge/Design-Report/main.tex" 1763936794.11119 24460 380420075f24ca2e57d9a64ef9e2b1b1 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1755987285 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1755987285 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1755987285 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -154,11 +154,11 @@
   "images/image7.png" 1763951204 36847 ae6ab2d1d109df27c8aacbee17743cb6 ""
   "images/image8.png" 1763951204 369312 8abbd87c63da15d884cac1e6d1789adc ""
   "images/image9.png" 1763951204 694448 f39792a9a9014df64106d406a556f3d6 ""
-  "main.aux" 1763934476.5653 10108 b4ac979378411dabafbdc3e9f2466812 "pdflatex"
-  "main.bbl" 1763934474.6733 1736 f255c9e4a92c19d6c6107f908369c0ab "bibtex main"
-  "main.out" 1763934476.5663 3697 8302a05bad0a5c876da298bdf81e0aa6 "pdflatex"
-  "main.tex" 1763934470.42729 24208 a5a166f798a6b4dd9c24d00fa9b71f40 ""
-  "main.toc" 1763934476.5673 1668 14d91bfe66872a65971121b8160242db "pdflatex"
+  "main.aux" 1763936796.4682 10110 bb9470a1e02c9aaea3fa846019a5d1a1 "pdflatex"
+  "main.bbl" 1763936686.5749 1736 f255c9e4a92c19d6c6107f908369c0ab "bibtex main"
+  "main.out" 1763936796.4692 3702 8072a9a9bed025fd770537b3b60472bc "pdflatex"
+  "main.tex" 1763936794.11119 24460 380420075f24ca2e57d9a64ef9e2b1b1 ""
+  "main.toc" 1763936796.4702 1669 518858afc9dec90e42cc37593b7d9b78 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
