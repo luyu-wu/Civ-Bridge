@@ -7,7 +7,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
@@ -21,17 +22,23 @@
 \BIBdecl
 
 \bibitem{juancamilomolinavillegas_2023_closedform}
-J.~C. Molina-Villegas, J.~Eliecer, and G.~M. Martínez, ``Closed-form solution for non-uniform euler–bernoulli beams and frames,'' \emph{Engineering structures/Engineering structures (Online)}, vol. 292, pp. 116\,381--116\,381, 10 2023.
+J.~C. Molina-Villegas, J.~Eliecer, and G.~M. Martínez, ``Closed-form solution
+  for non-uniform euler–bernoulli beams and frames,'' \emph{Engineering
+  structures/Engineering structures (Online)}, vol. 292, pp.
+  116\,381--116\,381, 10 2023.
 
 \bibitem{heins_1978_box}
-C.~P. Heins, ``Box girder bridge design; state of the art,'' \emph{Engineering Journal}, vol.~15, pp. 126--142, 12 1978.
+C.~P. Heins, ``Box girder bridge design; state of the art,'' \emph{Engineering
+  Journal}, vol.~15, pp. 126--142, 12 1978.
 
 \bibitem{project_handout}
 C.~T. Faculty, ``Civ102 matboard bridge design project,'' \emph{Quercus}, 2025.
 
 \bibitem{manufacturing_2025_lepage}
 \BIBentryALTinterwordspacing
-L.~Manufacturing, ``Lepage heavy duty contact cement,'' Lepage.ca, 2025. [Online]. Available: \url{https://www.lepage.ca/en/products/central-pdp.html/lepage-heavy-duty-contact-cement/SAP_0201FSL01BBZ.html}
+L.~Manufacturing, ``Lepage heavy duty contact cement,'' Lepage.ca, 2025.
+  [Online]. Available:
+  \url{https://www.lepage.ca/en/products/central-pdp.html/lepage-heavy-duty-contact-cement/SAP_0201FSL01BBZ.html}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}
